@@ -1,0 +1,10 @@
+C:\Users\lenna\OneDrive - FHICT\Fontys\Semester 2\Periode 1\PRC2\PRC2\test\Opdracht6\Opdracht6\bin\Debug\Opdracht6.exe.config
+C:\Users\lenna\OneDrive - FHICT\Fontys\Semester 2\Periode 1\PRC2\PRC2\test\Opdracht6\Opdracht6\bin\Debug\Opdracht6.exe
+C:\Users\lenna\OneDrive - FHICT\Fontys\Semester 2\Periode 1\PRC2\PRC2\test\Opdracht6\Opdracht6\bin\Debug\Opdracht6.pdb
+C:\Users\lenna\OneDrive - FHICT\Fontys\Semester 2\Periode 1\PRC2\PRC2\test\Opdracht6\Opdracht6\obj\Debug\Opdracht6.csprojAssemblyReference.cache
+C:\Users\lenna\OneDrive - FHICT\Fontys\Semester 2\Periode 1\PRC2\PRC2\test\Opdracht6\Opdracht6\obj\Debug\Opdracht6.Form1.resources
+C:\Users\lenna\OneDrive - FHICT\Fontys\Semester 2\Periode 1\PRC2\PRC2\test\Opdracht6\Opdracht6\obj\Debug\Opdracht6.Properties.Resources.resources
+C:\Users\lenna\OneDrive - FHICT\Fontys\Semester 2\Periode 1\PRC2\PRC2\test\Opdracht6\Opdracht6\obj\Debug\Opdracht6.csproj.GenerateResource.cache
+C:\Users\lenna\OneDrive - FHICT\Fontys\Semester 2\Periode 1\PRC2\PRC2\test\Opdracht6\Opdracht6\obj\Debug\Opdracht6.csproj.CoreCompileInputs.cache
+C:\Users\lenna\OneDrive - FHICT\Fontys\Semester 2\Periode 1\PRC2\PRC2\test\Opdracht6\Opdracht6\obj\Debug\Opdracht6.exe
+C:\Users\lenna\OneDrive - FHICT\Fontys\Semester 2\Periode 1\PRC2\PRC2\test\Opdracht6\Opdracht6\obj\Debug\Opdracht6.pdb

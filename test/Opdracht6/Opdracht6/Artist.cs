@@ -10,21 +10,23 @@ namespace Opdracht6
     {
         public string Name { get; set; }
         public DateTime Birthday { get; set; }
+        public List<Song> Songs { get; private set; }
 
         public Artist(string name, DateTime birthday)
         {
             this.Name = name;
             this.Birthday = birthday;
+            Songs = new List<Song>();
         }
 
-        public void AddSong(Song song)
+        public void Add(Song song)
         {
-
+            Songs.Add(song);
         }
 
         public override string ToString()
         {
-            return
+            return String.Format("Naam: {0} \nGeboortedatum: {1}", Name, Birthday.ToShortDateString());
         }
     }
 }
