@@ -25,9 +25,9 @@ namespace Opdracht6
 
         private void bAddArtist_Click(object sender, EventArgs e)
         {
-            int year = Convert.ToInt32(tbYear.Text);
-            int month = Convert.ToInt32(tbMonth.Text);
-            int day = Convert.ToInt32(tbDay.Text);
+            int year = Convert.ToInt32(nudYear.Text);
+            int month = Convert.ToInt32(nudMonth.Text);
+            int day = Convert.ToInt32(nudDay.Text);
 
             player.AddArtist(new Artist(tbArtiest.Text, new DateTime(year, month, day)));
 
@@ -38,7 +38,7 @@ namespace Opdracht6
         private void bAddSong_Click(object sender, EventArgs e)
         {
             IndexArtist = CbArtist.SelectedIndex; 
-            int year = Convert.ToInt32(tbSongYear.Text);
+            int year = Convert.ToInt32(nudSongYear.Text);
             
             foreach (Artist selectedArtist in player.Artists)
             {
@@ -65,6 +65,7 @@ namespace Opdracht6
         {
             player.RemovePlaylist(player.Playlists[cbPlaylistName.SelectedIndex]);
             FillPlaylistComboBox();
+            
         }
 
         public void FillArtistComboBoxAndList()
@@ -93,6 +94,7 @@ namespace Opdracht6
 
         public void FillPlaylistComboBox()
         {
+            cbSelectPlaylist.Items.Clear();
             cbPlaylistName.Items.Clear();
             lbPlaylist.Items.Clear();
 

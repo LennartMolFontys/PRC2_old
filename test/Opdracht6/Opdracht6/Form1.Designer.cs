@@ -34,9 +34,6 @@
             this.bRemovePlaylist = new System.Windows.Forms.Button();
             this.cbSongs = new System.Windows.Forms.ComboBox();
             this.bPlaySong = new System.Windows.Forms.Button();
-            this.tbDay = new System.Windows.Forms.TextBox();
-            this.tbYear = new System.Windows.Forms.TextBox();
-            this.tbMonth = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,7 +45,6 @@
             this.bAddSong = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.tbSongYear = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.bRemoveSongFromPlaylist = new System.Windows.Forms.Button();
@@ -80,6 +76,10 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.cbSelectPlaylist = new System.Windows.Forms.ComboBox();
+            this.nudSongYear = new System.Windows.Forms.NumericUpDown();
+            this.nudDay = new System.Windows.Forms.NumericUpDown();
+            this.nudMonth = new System.Windows.Forms.NumericUpDown();
+            this.nudYear = new System.Windows.Forms.NumericUpDown();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -88,13 +88,17 @@
             this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSongYear)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDay)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMonth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudYear)).BeginInit();
             this.SuspendLayout();
             // 
             // bAddArtist
             // 
             this.bAddArtist.Location = new System.Drawing.Point(74, 74);
             this.bAddArtist.Name = "bAddArtist";
-            this.bAddArtist.Size = new System.Drawing.Size(100, 23);
+            this.bAddArtist.Size = new System.Drawing.Size(131, 23);
             this.bAddArtist.TabIndex = 0;
             this.bAddArtist.Text = "Add";
             this.bAddArtist.UseVisualStyleBackColor = true;
@@ -128,6 +132,7 @@
             // 
             // cbSongs
             // 
+            this.cbSongs.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSongs.FormattingEnabled = true;
             this.cbSongs.Location = new System.Drawing.Point(166, 60);
             this.cbSongs.Name = "cbSongs";
@@ -144,42 +149,18 @@
             this.bPlaySong.UseVisualStyleBackColor = true;
             this.bPlaySong.Click += new System.EventHandler(this.bPlaySong_Click);
             // 
-            // tbDay
-            // 
-            this.tbDay.Location = new System.Drawing.Point(74, 48);
-            this.tbDay.Name = "tbDay";
-            this.tbDay.Size = new System.Drawing.Size(23, 20);
-            this.tbDay.TabIndex = 6;
-            this.tbDay.Text = "20";
-            // 
-            // tbYear
-            // 
-            this.tbYear.Location = new System.Drawing.Point(130, 48);
-            this.tbYear.Name = "tbYear";
-            this.tbYear.Size = new System.Drawing.Size(44, 20);
-            this.tbYear.TabIndex = 8;
-            this.tbYear.Text = "2000";
-            // 
-            // tbMonth
-            // 
-            this.tbMonth.Location = new System.Drawing.Point(103, 48);
-            this.tbMonth.Name = "tbMonth";
-            this.tbMonth.Size = new System.Drawing.Size(23, 20);
-            this.tbMonth.TabIndex = 9;
-            this.tbMonth.Text = "5";
-            // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.nudYear);
+            this.groupBox1.Controls.Add(this.nudMonth);
+            this.groupBox1.Controls.Add(this.nudDay);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.tbMonth);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.tbYear);
-            this.groupBox1.Controls.Add(this.tbDay);
             this.groupBox1.Controls.Add(this.bAddArtist);
             this.groupBox1.Controls.Add(this.tbArtiest);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(179, 113);
+            this.groupBox1.Size = new System.Drawing.Size(216, 113);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Artist";
@@ -204,6 +185,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.nudSongYear);
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.tbLyrics);
@@ -212,7 +194,6 @@
             this.groupBox2.Controls.Add(this.tbSong);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.label4);
-            this.groupBox2.Controls.Add(this.tbSongYear);
             this.groupBox2.Location = new System.Drawing.Point(12, 131);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(243, 225);
@@ -249,6 +230,7 @@
             // 
             // CbArtist
             // 
+            this.CbArtist.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CbArtist.FormattingEnabled = true;
             this.CbArtist.Location = new System.Drawing.Point(74, 25);
             this.CbArtist.Name = "CbArtist";
@@ -282,14 +264,6 @@
             this.label4.Size = new System.Drawing.Size(64, 13);
             this.label4.TabIndex = 2;
             this.label4.Text = "Song name:";
-            // 
-            // tbSongYear
-            // 
-            this.tbSongYear.Location = new System.Drawing.Point(74, 79);
-            this.tbSongYear.Name = "tbSongYear";
-            this.tbSongYear.Size = new System.Drawing.Size(44, 20);
-            this.tbSongYear.TabIndex = 8;
-            this.tbSongYear.Text = "2005";
             // 
             // groupBox3
             // 
@@ -371,6 +345,7 @@
             // 
             // cbPlaylistSongs
             // 
+            this.cbPlaylistSongs.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPlaylistSongs.FormattingEnabled = true;
             this.cbPlaylistSongs.Location = new System.Drawing.Point(180, 212);
             this.cbPlaylistSongs.Name = "cbPlaylistSongs";
@@ -398,6 +373,7 @@
             // 
             // cbPlaylistName
             // 
+            this.cbPlaylistName.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbPlaylistName.FormattingEnabled = true;
             this.cbPlaylistName.Location = new System.Drawing.Point(88, 20);
             this.cbPlaylistName.Name = "cbPlaylistName";
@@ -540,6 +516,7 @@
             // 
             // cbSelectSong
             // 
+            this.cbSelectSong.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSelectSong.FormattingEnabled = true;
             this.cbSelectSong.Location = new System.Drawing.Point(18, 31);
             this.cbSelectSong.Name = "cbSelectSong";
@@ -552,9 +529,9 @@
             this.groupBox7.Controls.Add(this.bPlaySong);
             this.groupBox7.Controls.Add(this.bStop);
             this.groupBox7.Location = new System.Drawing.Point(32, 421);
-            this.groupBox7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox7.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox7.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox7.Size = new System.Drawing.Size(196, 113);
             this.groupBox7.TabIndex = 18;
             this.groupBox7.TabStop = false;
@@ -566,9 +543,9 @@
             this.groupBox8.Controls.Add(this.button1);
             this.groupBox8.Controls.Add(this.cbSelectPlaylist);
             this.groupBox8.Location = new System.Drawing.Point(560, 421);
-            this.groupBox8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox8.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox8.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox8.Size = new System.Drawing.Size(196, 113);
             this.groupBox8.TabIndex = 19;
             this.groupBox8.TabStop = false;
@@ -595,11 +572,100 @@
             // 
             // cbSelectPlaylist
             // 
+            this.cbSelectPlaylist.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbSelectPlaylist.FormattingEnabled = true;
             this.cbSelectPlaylist.Location = new System.Drawing.Point(22, 31);
             this.cbSelectPlaylist.Name = "cbSelectPlaylist";
             this.cbSelectPlaylist.Size = new System.Drawing.Size(158, 21);
             this.cbSelectPlaylist.TabIndex = 18;
+            // 
+            // nudSongYear
+            // 
+            this.nudSongYear.Location = new System.Drawing.Point(74, 79);
+            this.nudSongYear.Maximum = new decimal(new int[] {
+            2019,
+            0,
+            0,
+            0});
+            this.nudSongYear.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudSongYear.Name = "nudSongYear";
+            this.nudSongYear.Size = new System.Drawing.Size(79, 20);
+            this.nudSongYear.TabIndex = 12;
+            this.nudSongYear.Value = new decimal(new int[] {
+            2005,
+            0,
+            0,
+            0});
+            // 
+            // nudDay
+            // 
+            this.nudDay.Location = new System.Drawing.Point(74, 48);
+            this.nudDay.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.nudDay.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudDay.Name = "nudDay";
+            this.nudDay.Size = new System.Drawing.Size(39, 20);
+            this.nudDay.TabIndex = 20;
+            this.nudDay.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // nudMonth
+            // 
+            this.nudMonth.Location = new System.Drawing.Point(114, 48);
+            this.nudMonth.Maximum = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            this.nudMonth.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudMonth.Name = "nudMonth";
+            this.nudMonth.Size = new System.Drawing.Size(39, 20);
+            this.nudMonth.TabIndex = 21;
+            this.nudMonth.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // nudYear
+            // 
+            this.nudYear.Location = new System.Drawing.Point(156, 48);
+            this.nudYear.Maximum = new decimal(new int[] {
+            2019,
+            0,
+            0,
+            0});
+            this.nudYear.Minimum = new decimal(new int[] {
+            1900,
+            0,
+            0,
+            0});
+            this.nudYear.Name = "nudYear";
+            this.nudYear.Size = new System.Drawing.Size(49, 20);
+            this.nudYear.TabIndex = 22;
+            this.nudYear.Value = new decimal(new int[] {
+            1900,
+            0,
+            0,
+            0});
             // 
             // Form1
             // 
@@ -628,6 +694,10 @@
             this.groupBox6.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.nudSongYear)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDay)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMonth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudYear)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -641,16 +711,12 @@
         private System.Windows.Forms.Button bRemovePlaylist;
         private System.Windows.Forms.ComboBox cbSongs;
         private System.Windows.Forms.Button bPlaySong;
-        private System.Windows.Forms.TextBox tbDay;
-        private System.Windows.Forms.TextBox tbYear;
-        private System.Windows.Forms.TextBox tbMonth;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox tbSongYear;
         private System.Windows.Forms.Button bAddSong;
         private System.Windows.Forms.ComboBox CbArtist;
         private System.Windows.Forms.TextBox tbLyrics;
@@ -687,6 +753,10 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox cbSelectPlaylist;
+        private System.Windows.Forms.NumericUpDown nudSongYear;
+        private System.Windows.Forms.NumericUpDown nudYear;
+        private System.Windows.Forms.NumericUpDown nudMonth;
+        private System.Windows.Forms.NumericUpDown nudDay;
     }
 }
 
