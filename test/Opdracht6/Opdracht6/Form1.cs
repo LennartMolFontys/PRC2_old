@@ -86,11 +86,11 @@ namespace Opdracht6
         {
             cbSongs.Items.Clear();
             lbSongs.Items.Clear();
-            cbSelect.Items.Clear();
+            cbSelectSong.Items.Clear();
             foreach (Song s in player.Songs)
             {
                 lbSongs.Items.Add(s.Name);
-                cbSelect.Items.Add(s.Name);
+                cbSelectSong.Items.Add(s.Name);
                 cbSongs.Items.Add(s.Name);
             }
         }
@@ -107,15 +107,16 @@ namespace Opdracht6
             foreach (Playlist s in player.Playlists)
             {
                 lbPlaylist.Items.Add(s.Name);
+                cbSelectPlaylist.Items.Add(s.Name);
                 cbPlaylistName.Items.Add(s.Name);
             }
         }
 
         private void bPlaySong_Click(object sender, EventArgs e)
         {
-            IndexComboBox = cbSelect.SelectedIndex;
+            IndexComboBox = cbSelectSong.SelectedIndex;
             player.PlaySong(player.Songs[IndexComboBox]);
-            lState.Text = String.Format("{0} made by {1} is now being played.", player.IsPlaying(), player.Songs[IndexComboBox].Artist.Name);
+            lState.Text = String.Format("{0} made by {1} is now being played \n Lyrics: {3}.", player.IsPlaying(), player.Songs[IndexComboBox].Artist.Name);
         }
 
         private void bStop_Click(object sender, EventArgs e)
@@ -136,13 +137,18 @@ namespace Opdracht6
 
         private void bAddSongToPlaylist_Click(object sender, EventArgs e)
         {
-            IndexComboBox = cbPlaylistName.SelectedIndex;
+           IndexComboBox = cbPlaylistName.SelectedIndex;
+
            player.Playlists[IndexComboBox].AddSong(player.Songs[IndexComboBox]);
+           FillPlaylistSongs();
            FillcbPlaylistSongs();
         }
 
         private void bAddAllSongs_Click(object sender, EventArgs e)
         {
+            IndexComboBox = cbPlaylistName.SelectedIndex;
+
+            player.Playlists[IndexComboBox].AddSongs(player.Songs);
             foreach(Song s in player.Songs)
             {
                 lbPlaylistSongs.Items.Add(s);
@@ -179,13 +185,12 @@ namespace Opdracht6
                 lbPlaylistSongs.Items.Add(s);
             }
         }
-        public void SelectPlaylist()
-        { 
-            foreach (Playlist s in player.Playlists)
-            {
-                cbSelect.Items.Add(s);
-            }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            IndexComboBox = cbSelectPlaylist.SelectedIndex;
+            player.PlayPlaylist(player.Playlists[IndexComboBox]);
+            lState.Text = String.Format("{0} made by {1} is now being played.", player.IsPlaying(), player.IsPlaying().Artist.Name);
         }
-        
     }
 }

@@ -74,13 +74,20 @@
             this.Artists = new System.Windows.Forms.Label();
             this.bStop = new System.Windows.Forms.Button();
             this.lState = new System.Windows.Forms.Label();
-            this.cbSelect = new System.Windows.Forms.ComboBox();
+            this.cbSelectSong = new System.Windows.Forms.ComboBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.cbSelectPlaylist = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.SuspendLayout();
             // 
             // bAddArtist
@@ -134,7 +141,7 @@
             // 
             // bPlaySong
             // 
-            this.bPlaySong.Location = new System.Drawing.Point(401, 592);
+            this.bPlaySong.Location = new System.Drawing.Point(24, 79);
             this.bPlaySong.Margin = new System.Windows.Forms.Padding(4);
             this.bPlaySong.Name = "bPlaySong";
             this.bPlaySong.Size = new System.Drawing.Size(100, 28);
@@ -566,7 +573,7 @@
             // 
             // bStop
             // 
-            this.bStop.Location = new System.Drawing.Point(511, 592);
+            this.bStop.Location = new System.Drawing.Point(134, 79);
             this.bStop.Margin = new System.Windows.Forms.Padding(4);
             this.bStop.Name = "bStop";
             this.bStop.Size = new System.Drawing.Size(100, 28);
@@ -578,7 +585,7 @@
             // lState
             // 
             this.lState.AutoSize = true;
-            this.lState.Location = new System.Drawing.Point(408, 640);
+            this.lState.Location = new System.Drawing.Point(401, 640);
             this.lState.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lState.Name = "lState";
             this.lState.Size = new System.Drawing.Size(205, 17);
@@ -586,28 +593,81 @@
             this.lState.Text = "No songs are currently playing.";
             this.lState.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // cbSelect
+            // cbSelectSong
             // 
-            this.cbSelect.FormattingEnabled = true;
-            this.cbSelect.Location = new System.Drawing.Point(401, 551);
-            this.cbSelect.Margin = new System.Windows.Forms.Padding(4);
-            this.cbSelect.Name = "cbSelect";
-            this.cbSelect.Size = new System.Drawing.Size(210, 24);
-            this.cbSelect.TabIndex = 17;
+            this.cbSelectSong.FormattingEnabled = true;
+            this.cbSelectSong.Location = new System.Drawing.Point(24, 38);
+            this.cbSelectSong.Margin = new System.Windows.Forms.Padding(4);
+            this.cbSelectSong.Name = "cbSelectSong";
+            this.cbSelectSong.Size = new System.Drawing.Size(210, 24);
+            this.cbSelectSong.TabIndex = 17;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.cbSelectSong);
+            this.groupBox7.Controls.Add(this.bPlaySong);
+            this.groupBox7.Controls.Add(this.bStop);
+            this.groupBox7.Location = new System.Drawing.Point(43, 518);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(262, 139);
+            this.groupBox7.TabIndex = 18;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "PlaySong";
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.button2);
+            this.groupBox8.Controls.Add(this.button1);
+            this.groupBox8.Controls.Add(this.cbSelectPlaylist);
+            this.groupBox8.Location = new System.Drawing.Point(746, 518);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(262, 139);
+            this.groupBox8.TabIndex = 19;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "PlayPlaylist";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(140, 79);
+            this.button2.Margin = new System.Windows.Forms.Padding(4);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(100, 28);
+            this.button2.TabIndex = 18;
+            this.button2.Text = "Stop";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(29, 79);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 28);
+            this.button1.TabIndex = 18;
+            this.button1.Text = "Play";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // cbSelectPlaylist
+            // 
+            this.cbSelectPlaylist.FormattingEnabled = true;
+            this.cbSelectPlaylist.Location = new System.Drawing.Point(29, 38);
+            this.cbSelectPlaylist.Margin = new System.Windows.Forms.Padding(4);
+            this.cbSelectPlaylist.Name = "cbSelectPlaylist";
+            this.cbSelectPlaylist.Size = new System.Drawing.Size(210, 24);
+            this.cbSelectPlaylist.TabIndex = 18;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1188, 885);
-            this.Controls.Add(this.cbSelect);
+            this.ClientSize = new System.Drawing.Size(1051, 885);
+            this.Controls.Add(this.groupBox8);
+            this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.lState);
-            this.Controls.Add(this.bStop);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.bPlaySong);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -622,6 +682,8 @@
             this.groupBox4.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -675,7 +737,12 @@
         private System.Windows.Forms.ListBox lbPlaylistSongs;
         private System.Windows.Forms.Button bStop;
         private System.Windows.Forms.Label lState;
-        private System.Windows.Forms.ComboBox cbSelect;
+        private System.Windows.Forms.ComboBox cbSelectSong;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cbSelectPlaylist;
     }
 }
 
