@@ -30,11 +30,7 @@ namespace Opdracht6
             int day = Convert.ToInt32(tbDay.Text);
 
             player.AddArtist(new Artist(tbArtiest.Text, new DateTime(year, month, day)));
-            foreach (Artist s in player.Artists)
-            {
-                MessageBox.Show(s.ToString());
-            }
-           
+
             FillArtistComboBoxAndList();
             
         }
@@ -97,6 +93,7 @@ namespace Opdracht6
 
         public void FillPlaylistComboBox()
         {
+            cbPlaylistName.Items.Clear();
             lbPlaylist.Items.Clear();
 
             if(player.Playlists.Count == 0)
@@ -139,7 +136,7 @@ namespace Opdracht6
         {
            IndexComboBox = cbPlaylistName.SelectedIndex;
 
-           player.Playlists[IndexComboBox].AddSong(player.Songs[IndexComboBox]);
+           player.Playlists[IndexComboBox].AddSong(player.Songs[cbSongs.SelectedIndex]);
            FillPlaylistSongs();
            FillcbPlaylistSongs();
         }
@@ -191,6 +188,11 @@ namespace Opdracht6
             IndexComboBox = cbSelectPlaylist.SelectedIndex;
             player.PlayPlaylist(player.Playlists[IndexComboBox]);
             lState.Text = String.Format("{0} made by {1} is now being played.", player.IsPlaying(), player.IsPlaying().Artist.Name);
+        }
+
+        private void cbPlaylistName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            FillPlaylistSongs();
         }
     }
 }
