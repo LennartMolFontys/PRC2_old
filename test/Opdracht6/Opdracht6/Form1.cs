@@ -57,15 +57,23 @@ namespace Opdracht6
                     }
                 }
             }
-           ;
             FillSongsComboBox();
         }
 
         private void bRemovePlaylist_Click(object sender, EventArgs e)
         {
-            player.RemovePlaylist(player.Playlists[cbPlaylistName.SelectedIndex]);
-            FillPlaylistComboBox();
-            
+            int removeIndex = cbPlaylistName.SelectedIndex;
+            if (removeIndex < 0)
+            {
+                MessageBox.Show("Select a playlist.");
+            }
+            else
+            {
+                player.RemovePlaylist(player.Playlists[removeIndex]);
+                FillPlaylistComboBox();
+                FillSongsComboBox();
+                lbPlaylistSongs.Items.Clear();
+            }  
         }
 
         public void FillArtistComboBoxAndList()
@@ -114,8 +122,15 @@ namespace Opdracht6
         private void bPlaySong_Click(object sender, EventArgs e)
         {
             IndexComboBox = cbSelectSong.SelectedIndex;
-            player.PlaySong(player.Songs[IndexComboBox]);
-            lState.Text = String.Format("{0} made by {1} is now being played \n Lyrics: {3}.", player.IsPlaying(), player.Songs[IndexComboBox].Artist.Name);
+            if (IndexComboBox < 0)
+            {
+                MessageBox.Show("Select a song.");
+            }
+            else
+            { 
+                player.PlaySong(player.Songs[IndexComboBox]);
+                lState.Text = String.Format("{0} made by {1} is now being played \n Lyrics: {3}.", player.IsPlaying(), player.Songs[IndexComboBox].Artist.Name);
+            }
         }
 
         private void bStop_Click(object sender, EventArgs e)
@@ -137,33 +152,51 @@ namespace Opdracht6
         private void bAddSongToPlaylist_Click(object sender, EventArgs e)
         {
            IndexComboBox = cbPlaylistName.SelectedIndex;
-
-           player.Playlists[IndexComboBox].AddSong(player.Songs[cbSongs.SelectedIndex]);
-           FillPlaylistSongs();
-           FillcbPlaylistSongs();
+            if (IndexComboBox < 0)
+            {
+                MessageBox.Show("Select a song that you want to remove.");
+            }
+            else
+            {
+                player.Playlists[IndexComboBox].AddSong(player.Songs[cbSongs.SelectedIndex]);
+                FillPlaylistSongs();
+                FillcbPlaylistSongs();
+            }
+                
         }
 
         private void bAddAllSongs_Click(object sender, EventArgs e)
         {
             IndexComboBox = cbPlaylistName.SelectedIndex;
-
-            player.Playlists[IndexComboBox].AddSongs(player.Songs);
-            foreach(Song s in player.Songs)
+            if (IndexComboBox < 0)
             {
-                lbPlaylistSongs.Items.Add(s);
+                MessageBox.Show("Please select a playlist.");
             }
-            FillcbPlaylistSongs();
+            else
+            {
+                player.Playlists[IndexComboBox].AddSongs(player.Songs);
+                foreach (Song s in player.Songs)
+                {
+                    lbPlaylistSongs.Items.Add(s);
+                }
+                FillcbPlaylistSongs();
+            }
         }
 
         private void bRemoveSongFromPlaylist_Click(object sender, EventArgs e)
         {
             int IndexPlaylist = cbPlaylistName.SelectedIndex;
             IndexSong = cbPlaylistSongs.SelectedIndex;
-
-
-            player.Playlists[IndexPlaylist].RemoveSong(player.Playlists[IndexPlaylist].Songs[IndexSong]);
-            FillPlaylistSongs();
-            FillcbPlaylistSongs();
+            if (IndexSong < 0)
+            {
+                MessageBox.Show("Select a song that you want to remove.");
+            }
+            else
+            {
+                player.Playlists[IndexPlaylist].RemoveSong(player.Playlists[IndexPlaylist].Songs[IndexSong]);
+                FillPlaylistSongs();
+                FillcbPlaylistSongs();
+            }
         }
 
         public void FillcbPlaylistSongs()
@@ -185,16 +218,32 @@ namespace Opdracht6
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            IndexComboBox = cbSelectPlaylist.SelectedIndex;
-            player.PlayPlaylist(player.Playlists[IndexComboBox]);
-            lState.Text = String.Format("{0} made by {1} is now being played.", player.IsPlaying(), player.IsPlaying().Artist.Name);
-        }
-
         private void cbPlaylistName_SelectedIndexChanged(object sender, EventArgs e)
         {
             FillPlaylistSongs();
+        }
+
+        private void bStopPlaylist_Click(object sender, EventArgs e)
+        {
+            player.StopPlaying();
+            if (player.stopPlaying)
+            {
+                lState.Text = "No songs are currently playing.";
+            }
+        }
+
+        private void bPlayPlaylist_Click(object sender, EventArgs e)
+        {
+            IndexComboBox = cbSelectPlaylist.SelectedIndex;
+            if (IndexComboBox < 0)
+            {
+                MessageBox.Show("Select a playlist.");
+            }
+            else
+            {
+                player.PlayPlaylist(player.Playlists[IndexComboBox]);
+                lState.Text = String.Format("{0} made by {1} is now being played.", player.IsPlaying(), player.IsPlaying().Artist.Name);
+            }
         }
     }
 }

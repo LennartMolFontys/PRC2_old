@@ -35,9 +35,13 @@
             this.cbSongs = new System.Windows.Forms.ComboBox();
             this.bPlaySong = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.nudYear = new System.Windows.Forms.NumericUpDown();
+            this.nudMonth = new System.Windows.Forms.NumericUpDown();
+            this.nudDay = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.nudSongYear = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tbLyrics = new System.Windows.Forms.TextBox();
@@ -73,25 +77,21 @@
             this.cbSelectSong = new System.Windows.Forms.ComboBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.bStopPlaylist = new System.Windows.Forms.Button();
+            this.bPlayPlaylist = new System.Windows.Forms.Button();
             this.cbSelectPlaylist = new System.Windows.Forms.ComboBox();
-            this.nudSongYear = new System.Windows.Forms.NumericUpDown();
-            this.nudDay = new System.Windows.Forms.NumericUpDown();
-            this.nudMonth = new System.Windows.Forms.NumericUpDown();
-            this.nudYear = new System.Windows.Forms.NumericUpDown();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudYear)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMonth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDay)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSongYear)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nudSongYear)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudDay)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMonth)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudYear)).BeginInit();
             this.SuspendLayout();
             // 
             // bAddArtist
@@ -165,6 +165,72 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Artist";
             // 
+            // nudYear
+            // 
+            this.nudYear.Location = new System.Drawing.Point(156, 48);
+            this.nudYear.Maximum = new decimal(new int[] {
+            2019,
+            0,
+            0,
+            0});
+            this.nudYear.Minimum = new decimal(new int[] {
+            1900,
+            0,
+            0,
+            0});
+            this.nudYear.Name = "nudYear";
+            this.nudYear.Size = new System.Drawing.Size(49, 20);
+            this.nudYear.TabIndex = 22;
+            this.nudYear.Value = new decimal(new int[] {
+            1900,
+            0,
+            0,
+            0});
+            // 
+            // nudMonth
+            // 
+            this.nudMonth.Location = new System.Drawing.Point(114, 48);
+            this.nudMonth.Maximum = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            this.nudMonth.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudMonth.Name = "nudMonth";
+            this.nudMonth.Size = new System.Drawing.Size(39, 20);
+            this.nudMonth.TabIndex = 21;
+            this.nudMonth.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // nudDay
+            // 
+            this.nudDay.Location = new System.Drawing.Point(74, 48);
+            this.nudDay.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.nudDay.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudDay.Name = "nudDay";
+            this.nudDay.Size = new System.Drawing.Size(39, 20);
+            this.nudDay.TabIndex = 20;
+            this.nudDay.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -200,6 +266,28 @@
             this.groupBox2.TabIndex = 11;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Song";
+            // 
+            // nudSongYear
+            // 
+            this.nudSongYear.Location = new System.Drawing.Point(74, 79);
+            this.nudSongYear.Maximum = new decimal(new int[] {
+            2019,
+            0,
+            0,
+            0});
+            this.nudSongYear.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nudSongYear.Name = "nudSongYear";
+            this.nudSongYear.Size = new System.Drawing.Size(79, 20);
+            this.nudSongYear.TabIndex = 12;
+            this.nudSongYear.Value = new decimal(new int[] {
+            2005,
+            0,
+            0,
+            0});
             // 
             // label6
             // 
@@ -464,9 +552,9 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(6, 281);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(41, 13);
+            this.label12.Size = new System.Drawing.Size(39, 13);
             this.label12.TabIndex = 17;
-            this.label12.Text = " playlist";
+            this.label12.Text = "Playlist";
             // 
             // label11
             // 
@@ -539,8 +627,8 @@
             // 
             // groupBox8
             // 
-            this.groupBox8.Controls.Add(this.button2);
-            this.groupBox8.Controls.Add(this.button1);
+            this.groupBox8.Controls.Add(this.bStopPlaylist);
+            this.groupBox8.Controls.Add(this.bPlayPlaylist);
             this.groupBox8.Controls.Add(this.cbSelectPlaylist);
             this.groupBox8.Location = new System.Drawing.Point(560, 421);
             this.groupBox8.Margin = new System.Windows.Forms.Padding(2);
@@ -551,24 +639,25 @@
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "PlayPlaylist";
             // 
-            // button2
+            // bStopPlaylist
             // 
-            this.button2.Location = new System.Drawing.Point(105, 64);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 18;
-            this.button2.Text = "Stop";
-            this.button2.UseVisualStyleBackColor = true;
+            this.bStopPlaylist.Location = new System.Drawing.Point(105, 64);
+            this.bStopPlaylist.Name = "bStopPlaylist";
+            this.bStopPlaylist.Size = new System.Drawing.Size(75, 23);
+            this.bStopPlaylist.TabIndex = 18;
+            this.bStopPlaylist.Text = "Stop";
+            this.bStopPlaylist.UseVisualStyleBackColor = true;
+            this.bStopPlaylist.Click += new System.EventHandler(this.bStopPlaylist_Click);
             // 
-            // button1
+            // bPlayPlaylist
             // 
-            this.button1.Location = new System.Drawing.Point(22, 64);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 18;
-            this.button1.Text = "Play";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.bPlayPlaylist.Location = new System.Drawing.Point(22, 64);
+            this.bPlayPlaylist.Name = "bPlayPlaylist";
+            this.bPlayPlaylist.Size = new System.Drawing.Size(75, 23);
+            this.bPlayPlaylist.TabIndex = 18;
+            this.bPlayPlaylist.Text = "Play";
+            this.bPlayPlaylist.UseVisualStyleBackColor = true;
+            this.bPlayPlaylist.Click += new System.EventHandler(this.bPlayPlaylist_Click);
             // 
             // cbSelectPlaylist
             // 
@@ -578,94 +667,6 @@
             this.cbSelectPlaylist.Name = "cbSelectPlaylist";
             this.cbSelectPlaylist.Size = new System.Drawing.Size(158, 21);
             this.cbSelectPlaylist.TabIndex = 18;
-            // 
-            // nudSongYear
-            // 
-            this.nudSongYear.Location = new System.Drawing.Point(74, 79);
-            this.nudSongYear.Maximum = new decimal(new int[] {
-            2019,
-            0,
-            0,
-            0});
-            this.nudSongYear.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudSongYear.Name = "nudSongYear";
-            this.nudSongYear.Size = new System.Drawing.Size(79, 20);
-            this.nudSongYear.TabIndex = 12;
-            this.nudSongYear.Value = new decimal(new int[] {
-            2005,
-            0,
-            0,
-            0});
-            // 
-            // nudDay
-            // 
-            this.nudDay.Location = new System.Drawing.Point(74, 48);
-            this.nudDay.Maximum = new decimal(new int[] {
-            31,
-            0,
-            0,
-            0});
-            this.nudDay.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudDay.Name = "nudDay";
-            this.nudDay.Size = new System.Drawing.Size(39, 20);
-            this.nudDay.TabIndex = 20;
-            this.nudDay.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // nudMonth
-            // 
-            this.nudMonth.Location = new System.Drawing.Point(114, 48);
-            this.nudMonth.Maximum = new decimal(new int[] {
-            12,
-            0,
-            0,
-            0});
-            this.nudMonth.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nudMonth.Name = "nudMonth";
-            this.nudMonth.Size = new System.Drawing.Size(39, 20);
-            this.nudMonth.TabIndex = 21;
-            this.nudMonth.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
-            // nudYear
-            // 
-            this.nudYear.Location = new System.Drawing.Point(156, 48);
-            this.nudYear.Maximum = new decimal(new int[] {
-            2019,
-            0,
-            0,
-            0});
-            this.nudYear.Minimum = new decimal(new int[] {
-            1900,
-            0,
-            0,
-            0});
-            this.nudYear.Name = "nudYear";
-            this.nudYear.Size = new System.Drawing.Size(49, 20);
-            this.nudYear.TabIndex = 22;
-            this.nudYear.Value = new decimal(new int[] {
-            1900,
-            0,
-            0,
-            0});
             // 
             // Form1
             // 
@@ -683,8 +684,12 @@
             this.Text = "Form1";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudYear)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudMonth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nudDay)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nudSongYear)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
@@ -694,10 +699,6 @@
             this.groupBox6.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.nudSongYear)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudDay)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudMonth)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nudYear)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -750,8 +751,8 @@
         private System.Windows.Forms.ComboBox cbSelectSong;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button bStopPlaylist;
+        private System.Windows.Forms.Button bPlayPlaylist;
         private System.Windows.Forms.ComboBox cbSelectPlaylist;
         private System.Windows.Forms.NumericUpDown nudSongYear;
         private System.Windows.Forms.NumericUpDown nudYear;
