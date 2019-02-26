@@ -1,0 +1,10 @@
+C:\Users\jeffr\OneDrive - Office 365 Fontys\Semester 2\PRC2\week 4\PRC2 - W4 - PiggyBankAssignment\PiggyBankAssignment\PiggyBankAssignment\bin\Debug\PiggyBankAssignment.exe.config
+C:\Users\jeffr\OneDrive - Office 365 Fontys\Semester 2\PRC2\week 4\PRC2 - W4 - PiggyBankAssignment\PiggyBankAssignment\PiggyBankAssignment\bin\Debug\PiggyBankAssignment.exe
+C:\Users\jeffr\OneDrive - Office 365 Fontys\Semester 2\PRC2\week 4\PRC2 - W4 - PiggyBankAssignment\PiggyBankAssignment\PiggyBankAssignment\bin\Debug\PiggyBankAssignment.pdb
+C:\Users\jeffr\OneDrive - Office 365 Fontys\Semester 2\PRC2\week 4\PRC2 - W4 - PiggyBankAssignment\PiggyBankAssignment\PiggyBankAssignment\obj\Debug\PiggyBankAssignment.csprojAssemblyReference.cache
+C:\Users\jeffr\OneDrive - Office 365 Fontys\Semester 2\PRC2\week 4\PRC2 - W4 - PiggyBankAssignment\PiggyBankAssignment\PiggyBankAssignment\obj\Debug\PiggyBankAssignment.MainForm.resources
+C:\Users\jeffr\OneDrive - Office 365 Fontys\Semester 2\PRC2\week 4\PRC2 - W4 - PiggyBankAssignment\PiggyBankAssignment\PiggyBankAssignment\obj\Debug\PiggyBankAssignment.Properties.Resources.resources
+C:\Users\jeffr\OneDrive - Office 365 Fontys\Semester 2\PRC2\week 4\PRC2 - W4 - PiggyBankAssignment\PiggyBankAssignment\PiggyBankAssignment\obj\Debug\PiggyBankAssignment.csproj.GenerateResource.cache
+C:\Users\jeffr\OneDrive - Office 365 Fontys\Semester 2\PRC2\week 4\PRC2 - W4 - PiggyBankAssignment\PiggyBankAssignment\PiggyBankAssignment\obj\Debug\PiggyBankAssignment.csproj.CoreCompileInputs.cache
+C:\Users\jeffr\OneDrive - Office 365 Fontys\Semester 2\PRC2\week 4\PRC2 - W4 - PiggyBankAssignment\PiggyBankAssignment\PiggyBankAssignment\obj\Debug\PiggyBankAssignment.exe
+C:\Users\jeffr\OneDrive - Office 365 Fontys\Semester 2\PRC2\week 4\PRC2 - W4 - PiggyBankAssignment\PiggyBankAssignment\PiggyBankAssignment\obj\Debug\PiggyBankAssignment.pdb

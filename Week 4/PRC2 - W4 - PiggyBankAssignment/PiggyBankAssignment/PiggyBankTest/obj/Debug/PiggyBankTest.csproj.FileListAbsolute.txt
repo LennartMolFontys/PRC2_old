@@ -1,0 +1,11 @@
+C:\Users\jeffr\OneDrive - Office 365 Fontys\Semester 2\PRC2\week 4\PRC2 - W4 - PiggyBankAssignment\PiggyBankAssignment\PiggyBankTest\bin\Debug\PiggyBankTest.dll
+C:\Users\jeffr\OneDrive - Office 365 Fontys\Semester 2\PRC2\week 4\PRC2 - W4 - PiggyBankAssignment\PiggyBankAssignment\PiggyBankTest\bin\Debug\PiggyBankTest.pdb
+C:\Users\jeffr\OneDrive - Office 365 Fontys\Semester 2\PRC2\week 4\PRC2 - W4 - PiggyBankAssignment\PiggyBankAssignment\PiggyBankTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\jeffr\OneDrive - Office 365 Fontys\Semester 2\PRC2\week 4\PRC2 - W4 - PiggyBankAssignment\PiggyBankAssignment\PiggyBankTest\bin\Debug\PiggyBankAssignment.exe
+C:\Users\jeffr\OneDrive - Office 365 Fontys\Semester 2\PRC2\week 4\PRC2 - W4 - PiggyBankAssignment\PiggyBankAssignment\PiggyBankTest\bin\Debug\PiggyBankAssignment.pdb
+C:\Users\jeffr\OneDrive - Office 365 Fontys\Semester 2\PRC2\week 4\PRC2 - W4 - PiggyBankAssignment\PiggyBankAssignment\PiggyBankTest\bin\Debug\PiggyBankAssignment.exe.config
+C:\Users\jeffr\OneDrive - Office 365 Fontys\Semester 2\PRC2\week 4\PRC2 - W4 - PiggyBankAssignment\PiggyBankAssignment\PiggyBankTest\obj\Debug\PiggyBankTest.csprojAssemblyReference.cache
+C:\Users\jeffr\OneDrive - Office 365 Fontys\Semester 2\PRC2\week 4\PRC2 - W4 - PiggyBankAssignment\PiggyBankAssignment\PiggyBankTest\obj\Debug\PiggyBankTest.csproj.CoreCompileInputs.cache
+C:\Users\jeffr\OneDrive - Office 365 Fontys\Semester 2\PRC2\week 4\PRC2 - W4 - PiggyBankAssignment\PiggyBankAssignment\PiggyBankTest\obj\Debug\PiggyBankTest.csproj.CopyComplete
+C:\Users\jeffr\OneDrive - Office 365 Fontys\Semester 2\PRC2\week 4\PRC2 - W4 - PiggyBankAssignment\PiggyBankAssignment\PiggyBankTest\obj\Debug\PiggyBankTest.dll
+C:\Users\jeffr\OneDrive - Office 365 Fontys\Semester 2\PRC2\week 4\PRC2 - W4 - PiggyBankAssignment\PiggyBankAssignment\PiggyBankTest\obj\Debug\PiggyBankTest.pdb

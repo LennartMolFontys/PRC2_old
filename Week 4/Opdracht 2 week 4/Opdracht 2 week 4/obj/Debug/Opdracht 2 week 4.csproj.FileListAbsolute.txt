@@ -1,0 +1,6 @@
+C:\Users\jeffr\OneDrive - Office 365 Fontys\Semester 2\PRC2\week 4\Opdracht 2 week 4\Opdracht 2 week 4\obj\Debug\Opdracht 2 week 4.csprojAssemblyReference.cache
+C:\Users\jeffr\OneDrive - Office 365 Fontys\Semester 2\PRC2\week 4\Opdracht 2 week 4\Opdracht 2 week 4\obj\Debug\Opdracht 2 week 4.csproj.CoreCompileInputs.cache
+C:\Users\jeffr\OneDrive - Office 365 Fontys\Semester 2\PRC2\week 4\Opdracht 2 week 4\Opdracht 2 week 4\bin\Debug\Opdracht 2 week 4.dll
+C:\Users\jeffr\OneDrive - Office 365 Fontys\Semester 2\PRC2\week 4\Opdracht 2 week 4\Opdracht 2 week 4\bin\Debug\Opdracht 2 week 4.pdb
+C:\Users\jeffr\OneDrive - Office 365 Fontys\Semester 2\PRC2\week 4\Opdracht 2 week 4\Opdracht 2 week 4\obj\Debug\Opdracht 2 week 4.dll
+C:\Users\jeffr\OneDrive - Office 365 Fontys\Semester 2\PRC2\week 4\Opdracht 2 week 4\Opdracht 2 week 4\obj\Debug\Opdracht 2 week 4.pdb
