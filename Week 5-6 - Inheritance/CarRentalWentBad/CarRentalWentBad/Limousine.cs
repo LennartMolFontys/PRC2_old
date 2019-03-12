@@ -5,42 +5,8 @@ using System.Text;
 
 namespace CarRentalWentBad
 {
-    public class Limousine
+    public class Limousine : Car
     {
-        /// <summary>
-        /// The manufacturer of the limousine
-        /// </summary>
-        public string Manufacturer { get; private set; }
-
-        /// <summary>
-        /// The model of the limousine
-        /// </summary>
-        public string Model { get; private set; }
-
-        /// <summary>
-        /// The licence plate of the limousine
-        /// </summary>
-        public string LicencePlate { get; private set; }
-
-        /// <summary>
-        /// The total number of kilometers the limousine has driven.
-        /// </summary>
-        /// 
-        public int BuildYear { get; private set; }
-
-        /// <summary>
-        /// The year the limousine has been built in.
-        /// </summary>
-        public int Kilometers { get; private set; }
-
-        /// <summary>
-        /// Limousine availability for rental 
-        /// </summary>
-        public bool IsAvailable
-        {
-            get { return RentalDate == null; }
-        }
-
         /// <summary>
         /// The starting date of the rental period. Contains null if not rented (IsAvailable == true).
         /// </summary>
@@ -58,33 +24,10 @@ namespace CarRentalWentBad
         /// <param name="model">The model of the limousine</param>
         /// <param name="licencePlate">The licence plate</param>
         /// <param name="hasMinibar">Does the limousine have a minibar for cold drinks?</param>
-        public Limousine(string manufacturer, string model, string licencePlate, int buildYear, bool hasMiniBar)
+        public Limousine(string Manufacturer, string Model, string LicencePlate, int BuildYear, bool hasMiniBar) : base(Manufacturer, Model, LicencePlate, BuildYear)
         {
-            Manufacturer = manufacturer;
-            Model = model;
-            LicencePlate = licencePlate;
-            BuildYear = buildYear;
             HasMinibar = hasMiniBar;
-            Kilometers = 0;
             RentalDate = null;
-        }
-
-        /// <summary>
-        /// Rents the limousine. The limousine will be unavailable after renting. 
-        /// It will be avaiable again after returning the limousine.
-        /// 
-        /// Only available limousines can be rented.
-        /// </summary>
-        /// <param name="rentalDate">The date on which the limousine is rented.</param>
-        /// <returns>true if the limousine was available and renting, false otherwise.</returns>
-        public bool Rent(SimpleDate rentalDate)
-        {
-            if (IsAvailable)
-            {
-                RentalDate = rentalDate;
-                return true;
-            }
-            return false;
         }
 
         /// <summary>
@@ -101,7 +44,7 @@ namespace CarRentalWentBad
         /// Please note that returning as number less than zero for error situations is NOT(!!!)
         /// clean coding in this case. Later on you will learn to do this in a better fashion (Exceptions!)
         /// </returns>
-        public decimal Return(SimpleDate returnDate, int kilometers)
+        public override decimal Return(SimpleDate returnDate, int kilometers)
         {
             if (!IsAvailable)
             {

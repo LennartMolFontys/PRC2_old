@@ -5,42 +5,8 @@ using System.Text;
 
 namespace CarRentalWentBad
 {
-    public class Sedan
+    public class Sedan : Car
     {
-        /// <summary>
-        /// The manufacturer of the sedan
-        /// </summary>
-        public string Manufacturer { get; private set; }
-
-        /// <summary>
-        /// The model of the sedan
-        /// </summary>
-        public string Model { get; private set; }
-
-        /// <summary>
-        /// The licence plate of the sedan
-        /// </summary>
-        public string LicencePlate { get; private set; }
-
-        /// <summary>
-        /// The total number of kilometers the sedan has driven.
-        /// </summary>
-        /// 
-        public int BuildYear { get; private set; }
-
-        /// <summary>
-        /// The year the sedan has been built in.
-        /// </summary>
-        public int Kilometers { get; private set; }
-
-        /// <summary>
-        /// Sedan availability for rental 
-        /// </summary>
-        public bool IsAvailable
-        {
-            get { return RentalDate == null; }
-        }
-
         /// <summary>
         /// The starting date of the rental period. Contains null if not rented (IsAvailable == true).
         /// </summary>
@@ -58,33 +24,10 @@ namespace CarRentalWentBad
         /// <param name="model">The model of the sedan</param>
         /// <param name="licencePlate">The licence plate</param>
         /// <param name="hasTowbar">Does the sedan have a towbar for towing.</param>
-        public Sedan(string manufacturer, string model, string licencePlate, int buildYear, bool hasTowBar)
+        public Sedan(string Manufacturer, string Model, string LicencePlate, int BuildYear, bool hasTowBar) : base (Manufacturer, Model, LicencePlate, BuildYear)
         {
-            Manufacturer = manufacturer;
-            Model = model;
-            LicencePlate = licencePlate;
-            BuildYear = buildYear;
             HasTowbar = hasTowBar;
-            Kilometers = 0;
             RentalDate = null;
-        }
-
-        /// <summary>
-        /// Rents the sedan. The sedan will be unavailable after renting. 
-        /// It will be avaiable again after returning the sedan.
-        /// 
-        /// Only available sedans can be rented.
-        /// </summary>
-        /// <param name="rentalDate">The date on which the sedan is rented.</param>
-        /// <returns>true if the sedan was available and renting, false otherwise.</returns>
-        public bool Rent(SimpleDate rentalDate)
-        {
-            if (IsAvailable)
-            {
-                RentalDate = rentalDate;
-                return true;
-            }
-            return false;
         }
 
         /// <summary>
@@ -101,7 +44,7 @@ namespace CarRentalWentBad
         /// Please note that returning as number less than zero for error situations is NOT(!!!)
         /// clean coding in this case. Later on you will learn to do this in a better fashion (Exceptions!)
         /// </returns>
-        public decimal Return(SimpleDate returnDate, int kilometers)
+        public override decimal Return(SimpleDate returnDate, int kilometers)
         {
             if (!IsAvailable)
             {

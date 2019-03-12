@@ -23,7 +23,7 @@ namespace AnimalShelter
         /// <param name="badHabits">The bad habbits of the cat (e.g. "scratches the couch")
         ///                         or null if none.</param>
         public Cat(int chipRegistrationNumber, SimpleDate dateOfBirth,
-                   string name, string badHabits) : base (chipRegistrationNumber, dateOfBirth,name)
+                   string name, string badHabits) : base (ChipRegistrationNumber, DateOfBirth, Name)
         {
             // TODO: Modify the constructor. Make sure it initializes all properties of the class.
         }

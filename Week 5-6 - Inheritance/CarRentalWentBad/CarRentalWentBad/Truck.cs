@@ -5,42 +5,8 @@ using System.Text;
 
 namespace CarRentalWentBad
 {
-    public class Truck
+    public class Truck : Car
     {
-        /// <summary>
-        /// The manufacturer of the truck
-        /// </summary>
-        public string Manufacturer { get; private set; }
-
-        /// <summary>
-        /// The model of the truck
-        /// </summary>
-        public string Model { get; private set; }
-
-        /// <summary>
-        /// The licence plate of the truck
-        /// </summary>
-        public string LicencePlate { get; private set; }
-
-        /// <summary>
-        /// The total number of kilometers the truck has driven.
-        /// </summary>
-        /// 
-        public int BuildYear { get; private set; }
-
-        /// <summary>
-        /// The year the truck has been built in.
-        /// </summary>
-        public int Kilometers { get; private set; }
-
-        /// <summary>
-        /// Truck availability for rental 
-        /// </summary>
-        public bool IsAvailable
-        {
-            get { return RentalDate == null; }
-        }
-
         /// <summary>
         /// The starting date of the rental period. Contains null if not rented (IsAvailable == true).
         /// </summary>
@@ -64,34 +30,11 @@ namespace CarRentalWentBad
         /// <param name="licencePlate">The licence plate</param>
         /// <param name="cargoSpace">The cargo space (liters)</param>
         /// <param name="maxWeigth">The weight the truck can carry (kg)</param>
-        public Truck(string manufacturer, string model, string licencePlate, int buildYear, int cargoSpace, int maxWeigth)
+        public Truck(string Manufacturer, string Model, string LicencePlate, int BuildYear, int cargoSpace, int maxWeigth) : base(Manufacturer, Model, LicencePlate, BuildYear)
         {
-            Manufacturer = manufacturer;
-            Model = model;
-            LicencePlate = licencePlate;
-            BuildYear = buildYear;
             CargoSpace = cargoSpace;
             MaxWeigth = maxWeigth;
-            Kilometers = 0;
             RentalDate = null;
-        }
-
-        /// <summary>
-        /// Rents the truck. The truck will be unavailable after renting. 
-        /// It will be avaiable again after returning the truck.
-        /// 
-        /// Only available trucks can be rented.
-        /// </summary>
-        /// <param name="rentalDate">The date on which the truck is rented.</param>
-        /// <returns>true if the truck was available, false otherwise.</returns>
-        public bool Rent(SimpleDate rentalDate)
-        {
-            if (IsAvailable)
-            {
-                RentalDate = rentalDate;
-                return true;
-            }
-            return false;
         }
 
         /// <summary>
@@ -108,12 +51,12 @@ namespace CarRentalWentBad
         /// Please note that returning as number less than zero for error situations is NOT(!!!)
         /// clean coding in this case. Later on you will learn to do this in a better fashion (Exceptions!)
         /// </returns>
-        public decimal Return(SimpleDate returnDate, int kilometers)
+        public override decimal Return(SimpleDate returnDate, int kilometers)
         {
             if (!IsAvailable)
             {
                 int daysRented = RentalDate.DaysDifference(returnDate);
-                int kilometersDriven = kilometers - Kilometers;
+                int kilometersDriven = kilometers -  Kilometers;
 
                 if (daysRented >= 0 && kilometersDriven >= 0)
                 {

@@ -269,5 +269,10 @@ namespace CarRentalWentBad
                 MessageBox.Show("The licence plate and/or kilometers are entered wrong format.");
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

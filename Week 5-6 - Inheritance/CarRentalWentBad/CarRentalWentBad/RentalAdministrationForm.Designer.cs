@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.addOffroadButton = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
+            this.offroadComboBox = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             this.nudBuildYear = new System.Windows.Forms.NumericUpDown();
             this.addSedanButton = new System.Windows.Forms.Button();
             this.addLimousineButton = new System.Windows.Forms.Button();
@@ -68,11 +73,7 @@
             this.availableCarsListBox = new System.Windows.Forms.ListBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.rentedCarsListBox = new System.Windows.Forms.ListBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.offroadComboBox = new System.Windows.Forms.ComboBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.addOffroadButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.nudBuildYear)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -83,6 +84,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.addOffroadButton);
             this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Controls.Add(this.offroadComboBox);
@@ -115,6 +117,56 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add a Car";
+            // 
+            // addOffroadButton
+            // 
+            this.addOffroadButton.Location = new System.Drawing.Point(428, 181);
+            this.addOffroadButton.Name = "addOffroadButton";
+            this.addOffroadButton.Size = new System.Drawing.Size(142, 23);
+            this.addOffroadButton.TabIndex = 28;
+            this.addOffroadButton.Text = "Add Offroad";
+            this.addOffroadButton.UseVisualStyleBackColor = true;
+            this.addOffroadButton.Click += new System.EventHandler(this.addOffroadButton_Click);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(521, 113);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(49, 13);
+            this.label18.TabIndex = 27;
+            this.label18.Text = "Offroad";
+            // 
+            // offroadComboBox
+            // 
+            this.offroadComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.offroadComboBox.FormattingEnabled = true;
+            this.offroadComboBox.Items.AddRange(new object[] {
+            "Yes",
+            "No"});
+            this.offroadComboBox.Location = new System.Drawing.Point(500, 128);
+            this.offroadComboBox.Name = "offroadComboBox";
+            this.offroadComboBox.Size = new System.Drawing.Size(70, 21);
+            this.offroadComboBox.TabIndex = 26;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(425, 132);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(69, 13);
+            this.label17.TabIndex = 25;
+            this.label17.Text = "4WheelDrive";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(6, 92);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(53, 13);
+            this.label16.TabIndex = 24;
+            this.label16.Text = "Build year";
             // 
             // nudBuildYear
             // 
@@ -473,9 +525,9 @@
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.rentedCarsListBox);
-            this.groupBox5.Location = new System.Drawing.Point(597, 179);
+            this.groupBox5.Location = new System.Drawing.Point(591, 179);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(390, 177);
+            this.groupBox5.Size = new System.Drawing.Size(396, 177);
             this.groupBox5.TabIndex = 4;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Rented Cars (not available)";
@@ -488,55 +540,15 @@
             this.rentedCarsListBox.Size = new System.Drawing.Size(378, 147);
             this.rentedCarsListBox.TabIndex = 0;
             // 
-            // label16
+            // button1
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(6, 92);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(53, 13);
-            this.label16.TabIndex = 24;
-            this.label16.Text = "Build year";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(425, 132);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(69, 13);
-            this.label17.TabIndex = 25;
-            this.label17.Text = "4WheelDrive";
-            // 
-            // offroadComboBox
-            // 
-            this.offroadComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.offroadComboBox.FormattingEnabled = true;
-            this.offroadComboBox.Items.AddRange(new object[] {
-            "Yes",
-            "No"});
-            this.offroadComboBox.Location = new System.Drawing.Point(500, 128);
-            this.offroadComboBox.Name = "offroadComboBox";
-            this.offroadComboBox.Size = new System.Drawing.Size(70, 21);
-            this.offroadComboBox.TabIndex = 26;
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(521, 113);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(49, 13);
-            this.label18.TabIndex = 27;
-            this.label18.Text = "Offroad";
-            // 
-            // addOffroadButton
-            // 
-            this.addOffroadButton.Location = new System.Drawing.Point(428, 181);
-            this.addOffroadButton.Name = "addOffroadButton";
-            this.addOffroadButton.Size = new System.Drawing.Size(142, 23);
-            this.addOffroadButton.TabIndex = 28;
-            this.addOffroadButton.Text = "Add Offroad";
-            this.addOffroadButton.UseVisualStyleBackColor = true;
-            this.addOffroadButton.Click += new System.EventHandler(this.addOffroadButton_Click);
+            this.button1.Location = new System.Drawing.Point(326, 20);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 29;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // RentalAdministrationForm
             // 
@@ -610,6 +622,7 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button addOffroadButton;
+        private System.Windows.Forms.Button button1;
     }
 }
 
