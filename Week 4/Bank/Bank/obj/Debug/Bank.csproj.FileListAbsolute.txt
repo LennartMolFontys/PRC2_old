@@ -1,6 +1,0 @@
-C:\Users\jeffr\OneDrive - Office 365 Fontys\Semester 2\PRC2\week 4\Bank\Bank\bin\Debug\Bank.dll
-C:\Users\jeffr\OneDrive - Office 365 Fontys\Semester 2\PRC2\week 4\Bank\Bank\bin\Debug\Bank.pdb
-C:\Users\jeffr\OneDrive - Office 365 Fontys\Semester 2\PRC2\week 4\Bank\Bank\obj\Debug\Bank.csprojAssemblyReference.cache
-C:\Users\jeffr\OneDrive - Office 365 Fontys\Semester 2\PRC2\week 4\Bank\Bank\obj\Debug\Bank.csproj.CoreCompileInputs.cache
-C:\Users\jeffr\OneDrive - Office 365 Fontys\Semester 2\PRC2\week 4\Bank\Bank\obj\Debug\Bank.dll
-C:\Users\jeffr\OneDrive - Office 365 Fontys\Semester 2\PRC2\week 4\Bank\Bank\obj\Debug\Bank.pdb

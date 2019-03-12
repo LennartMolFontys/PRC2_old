@@ -1,6 +1,0 @@
-C:\Users\jeffr\source\repos\Week 4  opdracht 4\Week 4  opdracht 4\bin\Debug\Week 4  opdracht 4.dll
-C:\Users\jeffr\source\repos\Week 4  opdracht 4\Week 4  opdracht 4\bin\Debug\Week 4  opdracht 4.pdb
-C:\Users\jeffr\source\repos\Week 4  opdracht 4\Week 4  opdracht 4\obj\Debug\Week 4  opdracht 4.csprojAssemblyReference.cache
-C:\Users\jeffr\source\repos\Week 4  opdracht 4\Week 4  opdracht 4\obj\Debug\Week 4  opdracht 4.csproj.CoreCompileInputs.cache
-C:\Users\jeffr\source\repos\Week 4  opdracht 4\Week 4  opdracht 4\obj\Debug\Week 4  opdracht 4.dll
-C:\Users\jeffr\source\repos\Week 4  opdracht 4\Week 4  opdracht 4\obj\Debug\Week 4  opdracht 4.pdb
