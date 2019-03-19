@@ -16,7 +16,7 @@ namespace CarRentalWentBad
         private  SimpleDate rentalDate;
         public SimpleDate RentalDate
         {
-            get { return rentalDate; }
+            get { return rentalDate;}
         }
         public string Manufacturer
         {

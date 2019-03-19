@@ -86,7 +86,7 @@ namespace CarRentalWentBad
                 && (miniBarComboBox.Text == "Yes" || miniBarComboBox.Text == "No"))
             {
                 bool hasMiniBar = miniBarComboBox.Text == "Yes";
-                Limousine limousine = new Limousine(manufacturerTextBox.Text, modelTextBox.Text,
+                Car limousine = new Limousine(manufacturerTextBox.Text, modelTextBox.Text,
                                                     licencePlate, buildYear, hasMiniBar);
                 administration.Add(limousine);
                 UpdateAvailableCarListAndRentedCarLists();
@@ -113,7 +113,7 @@ namespace CarRentalWentBad
                 && (towBarComboBox.Text == "Yes" || towBarComboBox.Text == "No"))
             {
                 bool hasTowBar = towBarComboBox.Text == "Yes";
-                Sedan sedan = new Sedan(manufacturerTextBox.Text, modelTextBox.Text,
+                Car sedan = new Sedan(manufacturerTextBox.Text, modelTextBox.Text,
                                         licencePlate, buildYear, hasTowBar);
                 administration.Add(sedan);
                 UpdateAvailableCarListAndRentedCarLists();
@@ -135,7 +135,7 @@ namespace CarRentalWentBad
                 && (offroadComboBox.Text == "Yes" || offroadComboBox.Text == "No"))
             {
                 bool hasFourWheelDrive = offroadComboBox.Text == "Yes";
-                Offroad offroad = new Offroad(manufacturerTextBox.Text, modelTextBox.Text,
+                Car offroad = new Offroad(manufacturerTextBox.Text, modelTextBox.Text,
                                         licencePlate, buildYear, hasFourWheelDrive);
                 administration.Add(offroad);
                 UpdateAvailableCarListAndRentedCarLists();
@@ -154,8 +154,8 @@ namespace CarRentalWentBad
             availableCarsListBox.Items.Clear();
             rentedCarsListBox.Items.Clear();
 
-            List<Sedan> sedans = administration.Sedans;
-            foreach (Sedan sedan in sedans)
+            List<Car> cars = administration.Cars;
+            foreach (Car sedan in cars)
             {
                 if (sedan.IsAvailable)
                 {
@@ -164,45 +164,6 @@ namespace CarRentalWentBad
                 else
                 {
                     rentedCarsListBox.Items.Add(sedan);
-                }
-            }
-
-            List<Limousine> limousines = administration.Limousines;
-            foreach (Limousine limousine in limousines)
-            {
-                if (limousine.IsAvailable)
-                {
-                    availableCarsListBox.Items.Add(limousine);
-                }
-                else
-                {
-                    rentedCarsListBox.Items.Add(limousine);
-                }
-            }
-
-            List<Truck> trucks = administration.Trucks;
-            foreach (Truck truck in trucks)
-            {
-                if (truck.IsAvailable)
-                {
-                    availableCarsListBox.Items.Add(truck);
-                }
-                else
-                {
-                    rentedCarsListBox.Items.Add(truck);
-                }
-            }
-
-            List<Offroad> offroads = administration.Offroads;
-            foreach (Offroad offroad in offroads)
-            {
-                if (offroad.IsAvailable)
-                {
-                    availableCarsListBox.Items.Add(offroad);
-                }
-                else
-                {
-                    rentedCarsListBox.Items.Add(offroad);
                 }
             }
         }

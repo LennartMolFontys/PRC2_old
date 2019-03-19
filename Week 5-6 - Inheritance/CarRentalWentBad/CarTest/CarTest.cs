@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CarRentalWentBad;
 
 namespace CarTest
@@ -62,8 +61,7 @@ namespace CarTest
         [TestMethod]
         public void TestCarRentTrue()
         {
-            // arrange
-            
+            // arrange 
             string manufacturer = "Manufacturer";
             string model = "TestModel";
             string licencePlate = "TestPlate1234";
@@ -133,8 +131,6 @@ namespace CarTest
 
             // assert
             Assert.AreEqual(-1, returntest);
-
-
         }
     }
 }
