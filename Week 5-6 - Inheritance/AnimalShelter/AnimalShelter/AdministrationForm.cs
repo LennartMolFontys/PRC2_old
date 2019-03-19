@@ -35,7 +35,30 @@ namespace AnimalShelter
         /// <param name="e"></param>
         private void createAnimalButton_Click(object sender, EventArgs e)
         {
-            // TODO: See method description
+            int RegistrationNumber;
+            string name = NameTextBox.Text;
+            SimpleDate Lastwalk;
+            bool Checkint = Int32.TryParse(ChipregistrationNBTextBox.Text, out RegistrationNumber);
+            SimpleDate birthday = new SimpleDate(dateTimeBirthDay.Value.Day, dateTimeBirthDay.Value.Month, dateTimeBirthDay.Value.Year);
+
+
+            if (animalTypeComboBox.SelectedItem.ToString().ToUpper() == "DOG")
+            {
+                if (LastWalkDayCheckBox.Checked == true)
+                {
+                    Lastwalk = null;
+                }
+                else
+                {
+                   Lastwalk = new SimpleDate(DateTimePickerLastWalk.Value.Day, DateTimePickerLastWalk.Value.Month, DateTimePickerLastWalk.Value.Year);
+                }
+                animal = new Dog(RegistrationNumber, birthday, name, Lastwalk);
+            }
+            if(animalTypeComboBox.SelectedItem.ToString().ToUpper() == "CAT")
+            {
+                string badHabits = BadHabitsTextBox.Text;
+                animal = new Cat(RegistrationNumber, birthday, name, badHabits);
+            }
         }
 
         /// <summary>
@@ -45,7 +68,7 @@ namespace AnimalShelter
         /// <param name="e"></param>
         private void showInfoButton_Click(object sender, EventArgs e)
         {
-            // TODO: See method description
+           MessageBox.Show(animal.ToString());
         }
     }
 }

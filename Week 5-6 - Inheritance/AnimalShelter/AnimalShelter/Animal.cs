@@ -56,7 +56,7 @@ namespace AnimalShelter
         ///          "<ChipRegistrationNumber>, <DateOfBirth>, <Name>, <IsReserved>"
         ///          Where: IsReserved will be "reserved" if reserved or "not reserved" otherwise. 
         /// </returns>
-        public override string ToString()
+         public override string ToString()
         {
             string IsReservedString;
             if (IsReserved)

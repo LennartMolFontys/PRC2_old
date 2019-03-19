@@ -23,9 +23,11 @@ namespace AnimalShelter
         /// <param name="badHabits">The bad habbits of the cat (e.g. "scratches the couch")
         ///                         or null if none.</param>
         public Cat(int chipRegistrationNumber, SimpleDate dateOfBirth,
-                   string name, string badHabits) : base (ChipRegistrationNumber, DateOfBirth, Name)
+                   string name, string badHabits) : base (chipRegistrationNumber, dateOfBirth,name)
         {
+
             // TODO: Modify the constructor. Make sure it initializes all properties of the class.
+            badHabits = BadHabits;
         }
 
         /// <summary>
@@ -42,9 +44,24 @@ namespace AnimalShelter
         /// </returns>
         public override string ToString()
         {
+            string isReserved;
+            if(IsReserved)
+            {
+                isReserved = "reserved";
+            }
+            else
+            {
+                isReserved = "not reserved";
+            }
+
+            if(string.IsNullOrEmpty(BadHabits))
+            {
+                BadHabits = "none";
+            }
+
             // TODO: Put your own code here to make the method return the string specified in the
             // method description.
-            return "";
+            return string.Format("Cat: {0}, {1}, {2}, {3}, {4}", ChipRegistrationNumber, DateOfBirth, Name, isReserved, BadHabits);
         }
     }
 }

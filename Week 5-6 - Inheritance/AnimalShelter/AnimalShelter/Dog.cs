@@ -21,9 +21,9 @@ namespace AnimalShelter
         /// <param name="name">The name of the animal.</param>
         /// <param name="lastWalkDate">The date of the last walk with the dog or null if unknown.</param>
         public Dog(int chipRegistrationNumber, SimpleDate dateOfBirth,
-                   string name, SimpleDate lastWalkDate)
+                   string name, SimpleDate lastWalkDate) :base (chipRegistrationNumber, dateOfBirth, name)
         {
-            // TODO: Modify the constructor. Make sure it initializes all properties of the class.
+            LastWalkDate = lastWalkDate;
         }
 
         /// <summary>
@@ -42,7 +42,27 @@ namespace AnimalShelter
         {
             // TODO: Put your own code here to make the method return the string specified in the
             // method description.
-            return "";
+            string isReserved;
+            string lastwalkdate;
+            if (IsReserved)
+            {
+                isReserved = "reserved";
+            }
+            else
+            {
+                isReserved = "not reserved";
+            }
+
+            if(LastWalkDate == null)
+            {
+                lastwalkdate = "Unknown";
+            }
+            else
+            {
+                lastwalkdate = LastWalkDate.ToString();
+            }
+
+            return base.ToString() + ", "  + lastwalkdate;
         }
     }
 }
