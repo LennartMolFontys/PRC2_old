@@ -13,42 +13,14 @@ namespace CarRentalWentBad
     public class RentalAdministration
     {
         // Contains the collection of sedans, limousines and trucks
-        private List<Sedan> sedans;
-        private List<Limousine> limousines;
-        private List<Truck> trucks;
-        private List<Offroad> offroads;
+        private List<Car> cars;
 
         /// <summary>
-        /// The sedans in the administration
+        /// The cars in the administration
         /// </summary>
-        public List<Sedan> Sedans
+        public List<Car> Cars
         {
-            get { return new List<Sedan>(sedans); }
-        }
-
-        /// <summary>
-        /// The limousines in the administration
-        /// </summary>
-        public List<Limousine> Limousines
-        {
-            get { return new List<Limousine>(limousines); }
-        }
-
-        /// <summary>
-        /// The trucks in the administration
-        /// </summary>
-        public List<Truck> Trucks
-        {
-            get { return new List<Truck>(trucks); }
-        }
-
-        /// <summary>
-        /// Creates an a rental administration.
-        /// </summary>
-        /// 
-        public List<Offroad> Offroads
-        {
-            get { return new List<Offroad> (offroads); }
+            get { return new List<Car>(cars); }
         }
 
         /// <summary>
@@ -56,53 +28,18 @@ namespace CarRentalWentBad
         /// </summary>
         public RentalAdministration()
         {
-            sedans = new List<Sedan>();
-            limousines = new List<Limousine>();
-            trucks = new List<Truck>();
-            offroads = new List<Offroad>();
+            cars = new List<Car>();
         }
 
         /// <summary>
         /// Add a sedan to the administration
         /// </summary>
         /// <param name="sedan">The sedan to be added to the administration</param>
-        public void Add(Sedan sedan)
+        public void Add(Car car)
         {
-            if (sedan != null)
+            if (cars != null)
             {
-                sedans.Add(sedan);
-            }
-        }
-
-        /// <summary>
-        /// Add a limousine to the administration
-        /// </summary>
-        /// <param name="sedan">The limousine to be added to the administration</param>
-        public void Add(Limousine limousine)
-        {
-            if (limousine != null)
-            {
-                limousines.Add(limousine);
-            }
-        }
-
-        /// <summary>
-        /// Add a truck to the administration
-        /// </summary>
-        /// <param name="sedan">The truck to be added to the administration</param>
-        public void Add(Truck truck)
-        {
-            if (truck != null)
-            {
-                trucks.Add(truck);
-            }
-        }
-
-        public void Add(Offroad offroad)
-        {
-            if (offroad != null)
-            {
-                offroads.Add(offroad);
+                cars.Add(car);
             }
         }
 
@@ -114,76 +51,17 @@ namespace CarRentalWentBad
         /// <returns>true if the car was available for renting, false otherwise.</returns>
         public bool RentCar(string licencePlate, SimpleDate rentalDate)
         {
-            // Try to find the car with the given licence plate. Is it a Sedan?
-            Sedan foundSedan = null;
-            foreach (Sedan sedan in sedans)
+            Car foundCar = null;
+            foreach(Car car in cars)
             {
-                if (sedan.LicencePlate == licencePlate)
+                if(car.LicencePlate == licencePlate)
                 {
-                    foundSedan = sedan;
+                    foundCar = car;
                     break;
                 }
             }
 
-            // Was a sedan with the given licene plate found? Then try to rent it.
-            if (foundSedan != null)
-            {
-                return foundSedan.Rent(rentalDate);
-            }
-
-            // No car found yet with the given licence plate.
-            // Try to find the car with the given licence plate. Is it a Limousine?
-            Limousine foundLimousine = null;
-            foreach (Limousine limousine in limousines)
-            {
-                if (limousine.LicencePlate == licencePlate)
-                {
-                    foundLimousine = limousine;
-                    break;
-                }
-            }
-
-            // Was a limousine with the given licene plate found? Then try to rent it.
-            if (foundLimousine != null)
-            {
-                return foundLimousine.Rent(rentalDate);
-            }
-
-            // No car found yet with the given licence plate.
-            // Try to find the car with the given licence plate. Is it a Truck?
-            Truck foundTruck = null;
-            foreach (Truck truck in trucks)
-            {
-                if (truck.LicencePlate == licencePlate)
-                {
-                    foundTruck = truck;
-                    break;
-                }
-            }
-
-            // Was a truck with the given licene plate found? Then try to rent it.
-            if (foundTruck != null)
-            {
-                return foundTruck.Rent(rentalDate);
-            }
-
-            Offroad foundOffroad = null;
-            foreach (Offroad offroad in offroads)
-            {
-                if (offroad.LicencePlate == licencePlate)
-                {
-                    foundOffroad = offroad;
-                    break;
-                }
-            }
-
-            // Was a truck with the given licene plate found? Then try to rent it.
-            if (foundOffroad != null)
-            {
-                return foundOffroad.Rent(rentalDate);
-            }
-
-            return false; // No Sedan nor Limousine nor Truck was found with the given licence plate.
+            return false; // No car was found with the given licence plate.
         }
 
         /// <summary>
@@ -202,76 +80,21 @@ namespace CarRentalWentBad
         /// </returns>
         public decimal ReturnCar(string licencePlate, SimpleDate returnDate, int kilometers)
         {
-            // Try to find the car with the given licence plate. Is it a Sedan?
-            Sedan foundSedan = null;
-            foreach (Sedan sedan in sedans)
+            Car foundCar = null;
+            foreach(Car car in cars)
             {
-                if (sedan.LicencePlate == licencePlate)
+                if(car.LicencePlate == licencePlate)
                 {
-                    foundSedan = sedan;
-                    break;
+                    foundCar = car;
                 }
             }
 
-            // Was a sedan with the given licene plate found? Then try to return it.
-            if (foundSedan != null)
+            if(foundCar  != null)
             {
-                return foundSedan.Return(returnDate, kilometers);
+                return foundCar.Return(returnDate, kilometers);
             }
-
-            // No car found yet with the given licence plate.
-            // Try to find the car with the given licence plate. Is it a Limousine?
-            Limousine foundLimousine = null;
-            foreach (Limousine limousine in limousines)
-            {
-                if (limousine.LicencePlate == licencePlate)
-                {
-                    foundLimousine = limousine;
-                    break;
-                }
-            }
-
-            // Was a limousine with the given licene plate found? Then try to return it.
-            if (foundLimousine != null)
-            {
-                return foundLimousine.Return(returnDate, kilometers);
-            }
-
-            // No car found yet with the given licence plate.
-            // Try to find the car with the given licence plate. Is it a Truck?
-            Truck foundTruck = null;
-            foreach (Truck truck in trucks)
-            {
-                if (truck.LicencePlate == licencePlate)
-                {
-                    foundTruck = truck;
-                    break;
-                }
-            }
-
-            // Was a truck with the given licene plate found? Then try to return it.
-            if (foundTruck != null)
-            {
-                return foundTruck.Return(returnDate, kilometers);
-            }
-
-            Offroad foundOffroad = null;
-            foreach (Offroad offroad in offroads)
-            {
-                if (offroad.LicencePlate == licencePlate)
-                {
-                    foundOffroad = offroad;
-                    break;
-                }
-            }
-
-            // Was a limousine with the given licene plate found? Then try to return it.
-            if (foundOffroad != null)
-            {
-                return foundOffroad.Return(returnDate, kilometers);
-            }
-
-            return -1; // No Sedan nor Limousine nor Truck was found with the given licence plate. Cannot return.
+            
+            return -1; // No Car was found with the given licence plate. Cannot return.
         }
     }
 }

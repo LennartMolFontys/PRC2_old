@@ -5,7 +5,7 @@ using CarRentalWentBad;
 namespace CarTest
 {
     [TestClass]
-    public class UnitTest1
+    public class CarTest
     {
         [TestMethod]
         public void TestManufacturer()
@@ -16,7 +16,7 @@ namespace CarTest
             string licencePlate = "TestPlate1234";
             int buildYear = 2000;
             bool hasTowBar = false;
-            
+
             // add
             Car sedan = new Sedan(manufacturer, model, licencePlate, buildYear, hasTowBar);
 
@@ -42,6 +42,24 @@ namespace CarTest
         }
 
         [TestMethod]
+        public void TestKilometersInit()
+        {
+            //arange 
+            string manufacturer = "Manufacturer";
+            string model = "TestModel";
+            string licencePlate = "TestPlate1234";
+            int buildYear = 2000;
+            bool hasTowBar = false;
+
+            //add
+            Car sedan = new Sedan(manufacturer, model, licencePlate, buildYear, hasTowBar);
+
+            //assert
+            Assert.AreEqual(0, sedan.Kilometers);
+
+        }
+
+        [TestMethod]
         public void TestCarRentTrue()
         {
             // arrange
@@ -60,11 +78,12 @@ namespace CarTest
             Assert.AreEqual(true, rent);
         }
 
+
+
         [TestMethod]
         public void TestCarRentFalse()
         {
             // arrange
-
             string manufacturer = "Manufacturer";
             string model = "TestModel";
             string licencePlate = "TestPlate1234";
@@ -80,6 +99,42 @@ namespace CarTest
             Assert.AreEqual(false, rent);
         }
 
+        [TestMethod]
+        public void TestStringOverRide()
+        {
+            // arrange
+            string manufacturer = "Manufacturer";
+            string model = "TestModel";
+            string licencePlate = "TestPlate1234";
+            int buildYear = 2000;
+            bool hasTowBar = false;
 
+            // add
+            Sedan SedanClass = new Sedan(manufacturer, model, licencePlate, buildYear, hasTowBar);
+            Car sedanCarClass = new Sedan(manufacturer, model, licencePlate, buildYear, hasTowBar);
+
+            // assert
+            Assert.AreEqual(SedanClass.ToString(), sedanCarClass.ToString());
+        }
+
+        [TestMethod]
+        public void TestReturnMethod()
+        {
+            // arrange
+            string manufacturer = "Manufacturer";
+            string model = "TestModel";
+            string licencePlate = "TestPlate1234";
+            int buildYear = 2000;
+            bool hasTowBar = false;
+            Car sedan = new Sedan(manufacturer, model, licencePlate, buildYear, hasTowBar);
+
+            // add
+            decimal returntest = sedan.Return(new SimpleDate(05, 08, 2000), 50);
+
+            // assert
+            Assert.AreEqual(-1, returntest);
+
+
+        }
     }
 }

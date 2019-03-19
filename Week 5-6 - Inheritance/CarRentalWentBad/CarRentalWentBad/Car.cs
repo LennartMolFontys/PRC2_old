@@ -13,7 +13,11 @@ namespace CarRentalWentBad
         private string licencePlate;
         private int buildYear;
         private int kilometers;
-        private  SimpleDate RentalDate;
+        private  SimpleDate rentalDate;
+        public SimpleDate RentalDate
+        {
+            get { return rentalDate; }
+        }
         public string Manufacturer
         {
             get { return manufacturer; }
@@ -33,14 +37,12 @@ namespace CarRentalWentBad
         public int Kilometers
         {
             get { return kilometers; }
-            set { kilometers = value; }
+            //set { kilometers = value; }
         }
         public bool IsAvailable
         {
             get { return RentalDate == null; }
         }
-
-
 
         // Constructor
         public Car(string Manufacturer, string Model, string LicencePlate, int BuildYear)
@@ -49,19 +51,39 @@ namespace CarRentalWentBad
             model = Model;
             licencePlate = LicencePlate;
             buildYear = BuildYear;
+            kilometers = 0;
+            rentalDate = null;
         }
 
         public bool Rent(SimpleDate rentalDate)
         {
             if (IsAvailable)
             {
-                RentalDate = rentalDate;
+                this.rentalDate = rentalDate;
                 return true;
             }
             return false;
         }
 
-        public abstract decimal Return(SimpleDate returnDate, int kilometers);
+        protected abstract decimal CalculateRentalCosts(int daysRented, int kilometersDriven);
 
+        public abstract override string ToString();
+
+        public decimal Return(SimpleDate returnDate, int kilometers)
+        {
+            if (!IsAvailable)
+            {
+                int daysRented = RentalDate.DaysDifference(returnDate);
+                int kilometersDriven = kilometers - Kilometers;
+
+                if (daysRented >= 0 && kilometersDriven >= 0)
+                {
+                    rentalDate = null;    // makes the limousine available for renting again
+                    this.kilometers = kilometers; // update kms for the next rental
+                    return CalculateRentalCosts(daysRented, kilometersDriven);
+                }
+            }
+            return -1;
+        }
     }
 }

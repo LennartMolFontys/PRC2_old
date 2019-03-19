@@ -7,10 +7,6 @@ namespace CarRentalWentBad
 {
     public class Sedan : Car
     {
-        /// <summary>
-        /// The starting date of the rental period. Contains null if not rented (IsAvailable == true).
-        /// </summary>
-        public SimpleDate RentalDate { get; private set; }
 
         /// <summary>
         /// Does the sedan have a towbar?
@@ -27,38 +23,6 @@ namespace CarRentalWentBad
         public Sedan(string Manufacturer, string Model, string LicencePlate, int BuildYear, bool hasTowBar) : base (Manufacturer, Model, LicencePlate, BuildYear)
         {
             HasTowbar = hasTowBar;
-            RentalDate = null;
-        }
-
-        /// <summary>
-        /// Returns a rented sedan and calculate the costs of the rental. 
-        /// Only rented sedans can be returned.
-        /// </summary>
-        /// <param name="returnDate">The date on which the sedan is returned.</param>
-        /// <param name="kilometers">The total number of kilometers on the counter.</param>
-        /// <returns>The cost of the rental, 
-        ///          or a number less than zero when: 
-        ///          - the sedan was not rented (so it could not be returned)
-        ///          - the return date is before the rental date (so wrong return date was entered)
-        ///          - the number of kilometers when returned is less then at the start of the rental.         
-        /// Please note that returning as number less than zero for error situations is NOT(!!!)
-        /// clean coding in this case. Later on you will learn to do this in a better fashion (Exceptions!)
-        /// </returns>
-        public override decimal Return(SimpleDate returnDate, int kilometers)
-        {
-            if (!IsAvailable)
-            {
-                int daysRented = RentalDate.DaysDifference(returnDate);
-                int kilometersDriven = kilometers - Kilometers;
-
-                if (daysRented >= 0 && kilometersDriven >= 0)
-                {
-                    RentalDate = null;    // makes the sedan available for renting again
-                    Kilometers = kilometers; // update kms for the next rental
-                    return CalculateRentalCosts(daysRented, kilometersDriven);
-                }
-            }
-            return -1;
         }
 
         /// <summary>
@@ -67,7 +31,7 @@ namespace CarRentalWentBad
         /// <param name="daysRented">The number of days of the rental.</param>
         /// <param name="kilometersDriven">The number of kilometers driven during the rental period.</param>
         /// <returns>The amount of credits to pay.</returns>
-        private decimal CalculateRentalCosts(int daysRented, int kilometersDriven)
+        protected override decimal CalculateRentalCosts(int daysRented, int kilometersDriven)
         {
             const decimal dayRate = 80m;
             const decimal kmRate = 0.19m;
