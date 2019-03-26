@@ -42,16 +42,7 @@ namespace AnimalShelter
         {
             // TODO: Put your own code here to make the method return the string specified in the
             // method description.
-            string isReserved;
             string lastwalkdate;
-            if (IsReserved)
-            {
-                isReserved = "reserved";
-            }
-            else
-            {
-                isReserved = "not reserved";
-            }
 
             if(LastWalkDate == null)
             {

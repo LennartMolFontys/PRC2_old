@@ -44,24 +44,14 @@ namespace AnimalShelter
         /// </returns>
         public override string ToString()
         {
-            string isReserved;
-            if(IsReserved)
-            {
-                isReserved = "reserved";
-            }
-            else
-            {
-                isReserved = "not reserved";
-            }
+            // TODO: Put your own code here to make the method return the string specified in the
+            // method description.
 
-            if(string.IsNullOrEmpty(BadHabits))
+            if (string.IsNullOrEmpty(BadHabits))
             {
                 BadHabits = "none";
             }
-
-            // TODO: Put your own code here to make the method return the string specified in the
-            // method description.
-            return string.Format("Cat: {0}, {1}, {2}, {3}, {4}", ChipRegistrationNumber, DateOfBirth, Name, isReserved, BadHabits);
+            return base.ToString() + ", " + BadHabits;
         }
     }
 }
