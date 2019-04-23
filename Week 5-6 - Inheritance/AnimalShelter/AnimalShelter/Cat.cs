@@ -11,7 +11,22 @@ namespace AnimalShelter
         /// Description of the bad habits that the cat has (e.g. "Scratches the couch").
         /// or null if the cat has no bad habits.
         /// </summary>
-        public string BadHabits { get; set; }
+        public string BadHabits { get; private set; }
+        public override decimal Price
+        {
+            get
+            {
+                decimal price = 60 - BadHabits.Length;
+                if (price < 20)
+                {
+                    return 20;
+                }
+                else
+                {
+                    return price;
+                }
+            }
+        }
 
         /// <summary>
         /// Creates a cat.
@@ -25,9 +40,7 @@ namespace AnimalShelter
         public Cat(int chipRegistrationNumber, SimpleDate dateOfBirth,
                    string name, string badHabits) : base (chipRegistrationNumber, dateOfBirth,name)
         {
-
-            // TODO: Modify the constructor. Make sure it initializes all properties of the class.
-            badHabits = BadHabits;
+            BadHabits = badHabits;
         }
 
         /// <summary>
@@ -43,10 +56,7 @@ namespace AnimalShelter
         ///                 BadHabits will be "none" if the cat has no bad habits, or the bad habits string otherwise.
         /// </returns>
         public override string ToString()
-        {
-            // TODO: Put your own code here to make the method return the string specified in the
-            // method description.
-
+        { 
             if (string.IsNullOrEmpty(BadHabits))
             {
                 BadHabits = "none";

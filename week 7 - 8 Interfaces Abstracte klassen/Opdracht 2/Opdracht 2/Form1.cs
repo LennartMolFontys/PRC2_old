@@ -33,5 +33,10 @@ namespace Opdracht_2
             Shape shape = new Square(Point.Empty, Color.Red, size);
             ShapeListBox.Items.Add(shape.ToString());
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

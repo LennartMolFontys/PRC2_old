@@ -11,10 +11,9 @@ namespace AnimalShelter
 {
     public partial class AdministrationForm : Form
     {
-        /// <summary>
-        /// The (only) animal in this administration (for now....)
-        /// </summary>
-        private Animal animal;
+       private Administration administration = new Administration();
+        
+
 
         /// <summary>
         /// Creates the form for doing adminstrative tasks
@@ -23,7 +22,6 @@ namespace AnimalShelter
         {
             InitializeComponent();
             animalTypeComboBox.SelectedIndex = 0;
-            animal = null;
         }
 
         /// <summary>
@@ -52,13 +50,15 @@ namespace AnimalShelter
                 {
                    Lastwalk = new SimpleDate(DateTimePickerLastWalk.Value.Day, DateTimePickerLastWalk.Value.Month, DateTimePickerLastWalk.Value.Year);
                 }
-                animal = new Dog(RegistrationNumber, birthday, name, Lastwalk);
+                administration.Add(new Dog(RegistrationNumber, birthday, name, Lastwalk));
             }
             if(animalTypeComboBox.SelectedItem.ToString().ToUpper() == "CAT")
             {
                 string badHabits = BadHabitsTextBox.Text;
-                animal = new Cat(RegistrationNumber, birthday, name, badHabits);
+                administration.Add(new Cat(RegistrationNumber, birthday, name, badHabits));
             }
+            administration.SortList();
+            DisplayAnimals();
         }
 
         /// <summary>
@@ -68,8 +68,80 @@ namespace AnimalShelter
         /// <param name="e"></param>
         private void showInfoButton_Click(object sender, EventArgs e)
         {
-           MessageBox.Show(animal.ToString());
+           int index = ShowInfoComBox.SelectedIndex;
+           MessageBox.Show(administration.animals[index].ToString());
         }
 
+        private void AdministrationForm_Load(object sender, EventArgs e)
+        {
+            AddAnimals();
+            administration.SortList();
+            DisplayAnimals();
+            
+        }
+
+        private void DisplayAnimals()
+        {
+            ShowInfoComBox.Items.Clear();
+            RemoveAnimalCombo.Items.Clear();
+            ReserveCombo.Items.Clear();
+            UnreserveCombo.Items.Clear();
+            NotReservedListB.Items.Clear();
+            ReservedListB.Items.Clear();
+
+            foreach(Animal s in administration.animals)
+            {
+                ShowInfoComBox.Items.Add(s.Name);
+                RemoveAnimalCombo.Items.Add(s.Name);
+                ReserveCombo.Items.Add(s.Name);
+                
+
+                if(s.IsReserved != true)
+                {
+                   NotReservedListB.Items.Add(s.Name);
+                }
+                else
+                {
+                    ReservedListB.Items.Add(s.Name);
+                    UnreserveCombo.Items.Add(s.Name);
+                }
+            }
+        }
+
+        private void AddAnimals()
+        {
+            administration.Add(new Cat(4,new SimpleDate(1,2,2000), "Jerry", "MoonWalking"));
+            administration.Add(new Dog(8, new SimpleDate(1, 2, 2001), "Tommy", new SimpleDate(5, 8, 2012)));
+            administration.Add(new Cat(6, new SimpleDate(1, 2, 2002), "Bert", "Sleeping"));
+            administration.Add(new Dog(9, new SimpleDate(1, 2, 2003), "Luna", new SimpleDate(5, 8, 2013)));
+        }
+
+        private void RemoveAnimelBtn_Click(object sender, EventArgs e)
+        {
+            int index = RemoveAnimalCombo.SelectedIndex;
+            administration.RemoveAnimal(administration.animals[index].ChipRegistrationNumber);
+            DisplayAnimals();
+        }
+
+        private void ReserveBtn_Click(object sender, EventArgs e)
+        {
+            int index = ReserveCombo.SelectedIndex;
+            administration.animals[index].IsReserved = true;
+            DisplayAnimals();
+        }
+
+        private void Unreserve_Click(object sender, EventArgs e)
+        {
+            string animal = UnreserveCombo.SelectedItem.ToString();
+            for(int i = 0; i < administration.animals.Count; i ++)
+            {
+                if(administration.animals[i].Name.ToUpper() == animal.ToUpper())
+                {
+                    administration.animals[i].IsReserved = false;
+                }
+            }
+            UnreserveCombo.Text = string.Empty;
+            DisplayAnimals();
+        }
     }
 }
