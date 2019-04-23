@@ -63,6 +63,7 @@
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.SaveBtn = new System.Windows.Forms.Button();
             this.Load_File = new System.Windows.Forms.Button();
+            this.ExportBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -417,11 +418,22 @@
             this.Load_File.UseVisualStyleBackColor = true;
             this.Load_File.Click += new System.EventHandler(this.Load_File_Click);
             // 
+            // ExportBtn
+            // 
+            this.ExportBtn.Location = new System.Drawing.Point(715, 438);
+            this.ExportBtn.Name = "ExportBtn";
+            this.ExportBtn.Size = new System.Drawing.Size(121, 32);
+            this.ExportBtn.TabIndex = 32;
+            this.ExportBtn.Text = "Export File";
+            this.ExportBtn.UseVisualStyleBackColor = true;
+            this.ExportBtn.Click += new System.EventHandler(this.ExportBtn_Click);
+            // 
             // AdministrationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1040, 493);
+            this.Controls.Add(this.ExportBtn);
             this.Controls.Add(this.Load_File);
             this.Controls.Add(this.SaveBtn);
             this.Controls.Add(this.groupBox7);
@@ -489,6 +501,7 @@
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.Button SaveBtn;
         private System.Windows.Forms.Button Load_File;
+        private System.Windows.Forms.Button ExportBtn;
     }
 }
 

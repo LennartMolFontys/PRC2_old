@@ -1,22 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
-using System.Runtime.Serialization;
 using System.IO;
+using System.Runtime.Serialization;
+using System.Windows.Forms;
 
 namespace AnimalShelter
 {
     public partial class AdministrationForm : Form
     {
-       private Administration administration = new Administration();
-       private SaveFileDialog saveFile = new SaveFileDialog();
-       private OpenFileDialog loadFile = new OpenFileDialog();
-      
+        private Administration administration = new Administration();
+        private SaveFileDialog saveFile = new SaveFileDialog();
+        private OpenFileDialog loadFile = new OpenFileDialog();
+
         /// <summary>
         /// Creates the form for doing adminstrative tasks
         /// </summary>
@@ -50,11 +44,11 @@ namespace AnimalShelter
                 }
                 else
                 {
-                   Lastwalk = new SimpleDate(DateTimePickerLastWalk.Value.Day, DateTimePickerLastWalk.Value.Month, DateTimePickerLastWalk.Value.Year);
+                    Lastwalk = new SimpleDate(DateTimePickerLastWalk.Value.Day, DateTimePickerLastWalk.Value.Month, DateTimePickerLastWalk.Value.Year);
                 }
                 administration.Add(new Dog(RegistrationNumber, birthday, name, Lastwalk));
             }
-            if(animalTypeComboBox.SelectedItem.ToString().ToUpper() == "CAT")
+            if (animalTypeComboBox.SelectedItem.ToString().ToUpper() == "CAT")
             {
                 string badHabits = BadHabitsTextBox.Text;
                 administration.Add(new Cat(RegistrationNumber, birthday, name, badHabits));
@@ -70,8 +64,8 @@ namespace AnimalShelter
         /// <param name="e"></param>
         private void showInfoButton_Click(object sender, EventArgs e)
         {
-           int index = ShowInfoComBox.SelectedIndex;
-           MessageBox.Show(administration.Animals[index].ToString());
+            int index = ShowInfoComBox.SelectedIndex;
+            MessageBox.Show(administration.Animals[index].ToString());
         }
 
         private void AdministrationForm_Load(object sender, EventArgs e)
@@ -79,7 +73,7 @@ namespace AnimalShelter
             AddAnimals();
             administration.SortList();
             DisplayAnimals();
-            
+
         }
 
         private void DisplayAnimals()
@@ -91,16 +85,16 @@ namespace AnimalShelter
             NotReservedListB.Items.Clear();
             ReservedListB.Items.Clear();
 
-            foreach(Animal s in administration.Animals)
+            foreach (Animal s in administration.Animals)
             {
                 ShowInfoComBox.Items.Add(s.Name);
                 RemoveAnimalCombo.Items.Add(s.Name);
                 ReserveCombo.Items.Add(s.Name);
-                
 
-                if(s.IsReserved != true)
+
+                if (s.IsReserved != true)
                 {
-                   NotReservedListB.Items.Add(s.Name);
+                    NotReservedListB.Items.Add(s.Name);
                 }
                 else
                 {
@@ -112,7 +106,7 @@ namespace AnimalShelter
 
         private void AddAnimals()
         {
-            administration.Add(new Cat(4,new SimpleDate(1,2,2000), "Jerry", "MoonWalking"));
+            administration.Add(new Cat(4, new SimpleDate(1, 2, 2000), "Jerry", "MoonWalking"));
             administration.Add(new Dog(8, new SimpleDate(1, 2, 2001), "Tommy", new SimpleDate(5, 8, 2012)));
             administration.Add(new Cat(6, new SimpleDate(1, 2, 2002), "Bert", "Sleeping"));
             administration.Add(new Dog(9, new SimpleDate(1, 2, 2003), "Luna", new SimpleDate(5, 8, 2013)));
@@ -135,9 +129,9 @@ namespace AnimalShelter
         private void Unreserve_Click(object sender, EventArgs e)
         {
             string animal = UnreserveCombo.SelectedItem.ToString();
-            for(int i = 0; i < administration.Animals.Count; i ++)
+            for (int i = 0; i < administration.Animals.Count; i++)
             {
-                if(administration.Animals[i].Name.ToUpper() == animal.ToUpper())
+                if (administration.Animals[i].Name.ToUpper() == animal.ToUpper())
                 {
                     administration.Animals[i].IsReserved = false;
                 }
@@ -155,28 +149,79 @@ namespace AnimalShelter
                 {
                     administration.Save(saveFile.FileName);
                 }
-                catch (SerializationException Exception)
+                catch(SerializationException Exception)
+                { 
+                    MessageBox.Show("Unable to Serialize:" + Exception.ToString());
+                }
+                catch (ArgumentException Exception)
                 {
-                    MessageBox.Show(Exception.Message);
+                    MessageBox.Show("Invalid Characters in File Path \n" + Exception.ToString());
+                }
+                catch (PathTooLongException)
+                {
+                    MessageBox.Show("File Path is to long");
+                }
+                catch (DirectoryNotFoundException)
+                {
+                    MessageBox.Show("The specified path is invalid");
+                }
+                catch (IOException Exception)
+                {
+                    MessageBox.Show("Unable to create file \n error: " + Exception.ToString());
+                }
+                catch (NotSupportedException)
+                {
+                    MessageBox.Show("Invalid Path format");
                 }
             }
+
         }
+        
 
         private void Load_File_Click(object sender, EventArgs e)
         {
             loadFile.Filter = "Text File|*.txt";
-            if(loadFile.ShowDialog() == DialogResult.OK)
+            if (loadFile.ShowDialog() == DialogResult.OK)
             {
                 try
                 {
                     administration.Load(loadFile.FileName);
                 }
-                catch (SerializationException Exception)
+                catch(SerializationException Exception)
                 {
-                    MessageBox.Show(Exception.Message);
+                    MessageBox.Show(Exception.ToString());
+                }
+                catch(ArgumentOutOfRangeException Exception)
+                {
+                    MessageBox.Show(Exception.ToString());
+                }
+                catch(NotSupportedException)
+                {
+                    MessageBox.Show("Unable to Read File");
+                }
+                catch(IOException Exception)
+                {
+                    MessageBox.Show("An error occurred when reading file: " + Exception.ToString());
+                }
+                catch(ArgumentException Exception)
+                {
+                    MessageBox.Show(Exception.ToString());
+                }                   
+                catch(ObjectDisposedException)
+                {
+                    MessageBox.Show("File is not open");
                 }
             }
             DisplayAnimals();
+        }
+
+        private void ExportBtn_Click(object sender, EventArgs e)
+        {
+            loadFile.Filter = "Text File|*.txt";
+            if (loadFile.ShowDialog() == DialogResult.OK)
+            {
+                administration.Excport(loadFile.FileName);
+            }
         }
     }
 }
