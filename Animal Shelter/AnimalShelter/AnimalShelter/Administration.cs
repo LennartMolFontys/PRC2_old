@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 namespace AnimalShelter
 {
@@ -56,6 +59,24 @@ namespace AnimalShelter
         public void SortList()
         {
             Animals.Sort();
+        }
+
+        public void Save(string filename)
+        {
+            BinaryFormatter format = new BinaryFormatter();
+            FileStream write = new FileStream(filename, FileMode.Create);
+            try
+            {
+                format.Serialize(write, Animals);
+            }
+            catch (SerializationException)
+            {
+                throw new SerializationException();
+            }
+            finally
+            {
+                write.Close();
+            }
         }
     }
 }
