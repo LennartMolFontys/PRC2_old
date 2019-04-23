@@ -6,15 +6,17 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Runtime.Serialization;
+using System.IO;
 
 namespace AnimalShelter
 {
     public partial class AdministrationForm : Form
     {
        private Administration administration = new Administration();
-        
-
-
+       private SaveFileDialog saveFile = new SaveFileDialog();
+       private OpenFileDialog loadFile = new OpenFileDialog();
+      
         /// <summary>
         /// Creates the form for doing adminstrative tasks
         /// </summary>
@@ -141,6 +143,39 @@ namespace AnimalShelter
                 }
             }
             UnreserveCombo.Text = string.Empty;
+            DisplayAnimals();
+        }
+
+        private void SaveBtn_Click(object sender, EventArgs e)
+        {
+            saveFile.Filter = "TextFile|*txt";
+            if (saveFile.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    administration.Save(saveFile.FileName);
+                }
+                catch (SerializationException Exception)
+                {
+                    MessageBox.Show(Exception.Message);
+                }
+            }
+        }
+
+        private void Load_File_Click(object sender, EventArgs e)
+        {
+            loadFile.Filter = "Text File|*.txt";
+            if(loadFile.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    administration.Load(loadFile.FileName);
+                }
+                catch (SerializationException Exception)
+                {
+                    MessageBox.Show(Exception.Message);
+                }
+            }
             DisplayAnimals();
         }
     }

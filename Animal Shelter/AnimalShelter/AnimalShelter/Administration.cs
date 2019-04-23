@@ -10,7 +10,9 @@ namespace AnimalShelter
 {
    public class Administration
     {
+        private BinaryFormatter format = new BinaryFormatter();
         public List<Animal> Animals { get; private set; }
+
         public Administration()
         {
             Animals = new List<Animal>();
@@ -63,19 +65,36 @@ namespace AnimalShelter
 
         public void Save(string filename)
         {
-            BinaryFormatter format = new BinaryFormatter();
             FileStream write = new FileStream(filename, FileMode.Create);
             try
             {
                 format.Serialize(write, Animals);
             }
-            catch (SerializationException)
+            catch (SerializationException e)
             {
-                throw new SerializationException();
+                throw new SerializationException("Unable to Serialize:" + e.ToString());
             }
             finally
             {
                 write.Close();
+            }
+        }
+
+        public void Load(string filename)
+        {
+            Animals.Clear();
+            FileStream read = new FileStream(filename, FileMode.Open);
+            try
+            {
+                Animals = format.Deserialize(read) as List<Animal>;
+            }
+            catch (SerializationException e)
+            {
+                throw new SerializationException("Unable to Serialize:" + e.ToString());
+            }
+            finally
+            {
+                read.Close();
             }
         }
     }

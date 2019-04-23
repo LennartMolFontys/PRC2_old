@@ -61,6 +61,8 @@
             this.Unreserve = new System.Windows.Forms.Button();
             this.UnreserveCombo = new System.Windows.Forms.ComboBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.SaveBtn = new System.Windows.Forms.Button();
+            this.Load_File = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -395,11 +397,33 @@
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "Unreserve";
             // 
+            // SaveBtn
+            // 
+            this.SaveBtn.Location = new System.Drawing.Point(154, 438);
+            this.SaveBtn.Name = "SaveBtn";
+            this.SaveBtn.Size = new System.Drawing.Size(121, 32);
+            this.SaveBtn.TabIndex = 30;
+            this.SaveBtn.Text = "Save File";
+            this.SaveBtn.UseVisualStyleBackColor = true;
+            this.SaveBtn.Click += new System.EventHandler(this.SaveBtn_Click);
+            // 
+            // Load_File
+            // 
+            this.Load_File.Location = new System.Drawing.Point(27, 5);
+            this.Load_File.Name = "Load_File";
+            this.Load_File.Size = new System.Drawing.Size(121, 32);
+            this.Load_File.TabIndex = 31;
+            this.Load_File.Text = "Load File";
+            this.Load_File.UseVisualStyleBackColor = true;
+            this.Load_File.Click += new System.EventHandler(this.Load_File_Click);
+            // 
             // AdministrationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1040, 493);
+            this.Controls.Add(this.Load_File);
+            this.Controls.Add(this.SaveBtn);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
@@ -463,6 +487,8 @@
         private System.Windows.Forms.Button Unreserve;
         private System.Windows.Forms.ComboBox UnreserveCombo;
         private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Button SaveBtn;
+        private System.Windows.Forms.Button Load_File;
     }
 }
 
