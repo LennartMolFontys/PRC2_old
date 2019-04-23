@@ -66,76 +66,31 @@ namespace AnimalShelter
 
         public void Save(string filename)
         {
-            FileStream write = new FileStream(filename, FileMode.Create);
-            try
+            using (FileStream write = new FileStream(filename, FileMode.Create))
             {
-                format.Serialize(write, Animals);
-            }catch (SerializationException e)
-            {
-                throw new SerializationException("Unable to Serialize:" + e.ToString());
-            }
-            catch(ArgumentException e)
-            {
-                throw new ArgumentException("Invalid Characters in File Path \n" + e.ToString());
-            }
-            catch(PathTooLongException)
-            {
-                throw new PathTooLongException("File Path is to long");
-            }
-            catch(DirectoryNotFoundException)
-            {
-                throw new DirectoryNotFoundException("The specified path is invalid");
-            }
-            catch(IOException e)
-            {
-                throw new IOException("Unable to create file \n error: " + e.ToString());
-            }
-            catch (NotSupportedException)
-            {
-                throw new IOException("Invalid Path format");
-            }
-            finally
-            {
-                write.Close();
+               format.Serialize(write, Animals);
             }
         }
 
         public void Load(string filename)
         {
             Animals.Clear();
-            FileStream read = new FileStream(filename, FileMode.Open);
-            try
+            using (FileStream read = new FileStream(filename, FileMode.Open))
             {
                 Animals = format.Deserialize(read) as List<Animal>;
-            }
-            catch (SerializationException e)
-            {
-                throw new SerializationException("Unable to Serialize:" + e.ToString());
-            }
-            finally
-            {
-                read.Close();
             }
         }
 
         public void Excport(string filename)
         {
             FillExportList();
-            try
+            using (StreamWriter file = new StreamWriter(filename))
             {
-                using (StreamWriter file = new StreamWriter(filename))
-                {
-                    foreach (string s in ExportStrings)
-                    {
-                        file.WriteLine(s);
-                    }
-                }
-            }catch
-            {
-
+               foreach (string s in ExportStrings)
+               {
+                  file.WriteLine(s);
+               }
             }
-
-
         }
 
         private void FillExportList()
@@ -150,7 +105,7 @@ namespace AnimalShelter
                 }
                 if (s is Cat)
                 {
-                    string cat = "Cat:" + s.ToString();
+                    string cat = "Cat: " + s.ToString();
                     ExportStrings.Add(cat);
                 }
             }

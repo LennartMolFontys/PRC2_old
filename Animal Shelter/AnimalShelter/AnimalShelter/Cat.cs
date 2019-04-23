@@ -17,7 +17,12 @@ namespace AnimalShelter
         {
             get
             {
-                decimal price = 60 - BadHabits.Length;
+                string badHabits = BadHabits;
+                if(badHabits == null)
+                {
+                    badHabits = "none";
+                }
+                decimal price = 60 - badHabits.Length;
                 if (price < 20)
                 {
                     return 20;

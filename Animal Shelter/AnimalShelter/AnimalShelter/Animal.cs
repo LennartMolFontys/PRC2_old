@@ -85,8 +85,8 @@ namespace AnimalShelter
             }
 
             string info = ChipRegistrationNumber
-                          + ", " + DateOfBirth
                           + ", " + Name
+                          + ", " + DateOfBirth                   
                           + ", " + IsReservedString;
             return info;
         }

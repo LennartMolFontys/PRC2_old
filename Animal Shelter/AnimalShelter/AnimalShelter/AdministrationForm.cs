@@ -142,7 +142,7 @@ namespace AnimalShelter
 
         private void SaveBtn_Click(object sender, EventArgs e)
         {
-            saveFile.Filter = "TextFile|*txt";
+            saveFile.Filter = "TextFile|*.txt";
             if (saveFile.ShowDialog() == DialogResult.OK)
             {
                 try
@@ -217,10 +217,37 @@ namespace AnimalShelter
 
         private void ExportBtn_Click(object sender, EventArgs e)
         {
-            loadFile.Filter = "Text File|*.txt";
-            if (loadFile.ShowDialog() == DialogResult.OK)
+            saveFile.Filter = "Text File|*.txt";
+            if (saveFile.ShowDialog() == DialogResult.OK)
             {
-                administration.Excport(loadFile.FileName);
+                try
+                {
+                    administration.Excport(saveFile.FileName);
+                }
+                catch (SerializationException Exception)
+                {
+                    MessageBox.Show("Unable to Serialize:" + Exception.ToString());
+                }
+                catch (ArgumentException Exception)
+                {
+                    MessageBox.Show("Invalid Characters in File Path \n" + Exception.ToString());
+                }
+                catch (PathTooLongException)
+                {
+                    MessageBox.Show("File Path is to long");
+                }
+                catch (DirectoryNotFoundException)
+                {
+                    MessageBox.Show("The specified path is invalid");
+                }
+                catch (IOException Exception)
+                {
+                    MessageBox.Show("Unable to create file \n error: " + Exception.ToString());
+                }
+                catch (NotSupportedException)
+                {
+                    MessageBox.Show("Invalid Path format");
+                }
             }
         }
     }
