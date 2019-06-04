@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimalShelter", "AnimalShel
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject2", "UnitTestProject2\UnitTestProject2.csproj", "{8C63916B-DCAC-42B7-ADF0-EBF8802528A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestProject3", "UnitTestProject3\UnitTestProject3.csproj", "{8E17A95A-28A2-40F5-8A85-2992C76ED83D}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,14 +31,6 @@ Global
 		{8C63916B-DCAC-42B7-ADF0-EBF8802528A5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8C63916B-DCAC-42B7-ADF0-EBF8802528A5}.Release|x86.ActiveCfg = Release|Any CPU
 		{8C63916B-DCAC-42B7-ADF0-EBF8802528A5}.Release|x86.Build.0 = Release|Any CPU
-		{8E17A95A-28A2-40F5-8A85-2992C76ED83D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8E17A95A-28A2-40F5-8A85-2992C76ED83D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8E17A95A-28A2-40F5-8A85-2992C76ED83D}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{8E17A95A-28A2-40F5-8A85-2992C76ED83D}.Debug|x86.Build.0 = Debug|Any CPU
-		{8E17A95A-28A2-40F5-8A85-2992C76ED83D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8E17A95A-28A2-40F5-8A85-2992C76ED83D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8E17A95A-28A2-40F5-8A85-2992C76ED83D}.Release|x86.ActiveCfg = Release|Any CPU
-		{8E17A95A-28A2-40F5-8A85-2992C76ED83D}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
