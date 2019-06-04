@@ -50,6 +50,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="OperationTest.cs" />
+    <Compile Include="TestAvailableHours.cs" />
+    <Compile Include="TestDoctor.cs" />
     <Compile Include="TestFysio.cs" />
     <Compile Include="TestMedicine.cs" />
     <Compile Include="TestPatient.cs" />

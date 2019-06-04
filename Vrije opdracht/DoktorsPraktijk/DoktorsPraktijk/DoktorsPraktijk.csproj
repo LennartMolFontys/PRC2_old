@@ -48,7 +48,7 @@
   <ItemGroup>
     <Compile Include="Administration.cs" />
     <Compile Include="Appointment.cs" />
-    <Compile Include="AvailableHours.cs" />
+    <Compile Include="AvailableHour.cs" />
     <Compile Include="Fysio.cs" />
     <Compile Include="Ipractrice.cs" />
     <Compile Include="Medicine.cs" />

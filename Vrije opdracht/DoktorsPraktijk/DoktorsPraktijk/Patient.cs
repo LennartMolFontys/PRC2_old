@@ -26,15 +26,17 @@ namespace DoktorsPraktijk
             Treatments = new List<Treatment>();
         }
 
-       public void Add(Treatment treatment)
+       public bool Add(Treatment treatment)
        {
            if(treatment != null)
            {
                Treatments.Add(treatment);
+               return true;
            }
+           return false;
        }
 
-       public void Remove(string TreatmentName)
+       public bool Remove(string TreatmentName)
        {
             if (TreatmentName != null || !string.IsNullOrEmpty(TreatmentName))
             {
@@ -43,9 +45,11 @@ namespace DoktorsPraktijk
                   if(Treatments[i].TreatmentName == TreatmentName)
                   {
                         Treatments.Remove(Treatments[i]);
+                        return true;
                   }
               }
             }
+            return false;
        }
 
         public override string ToString()

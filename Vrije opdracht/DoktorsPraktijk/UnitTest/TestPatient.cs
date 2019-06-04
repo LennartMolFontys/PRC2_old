@@ -59,9 +59,9 @@ namespace UnitTest
         [TestMethod]
         public void AddTreatmentTestCorrect()
         {
-            patient.Add(fysio);
-            patient.Add(Operation);
-            patient.Add(medicine);
+           bool check1 = patient.Add(fysio);
+           bool check2 = patient.Add(Operation);
+           bool check3 = patient.Add(medicine);
 
             CollectionAssert.Contains(patient.Treatments, fysio);
             CollectionAssert.Contains(patient.Treatments, Operation);
@@ -72,14 +72,19 @@ namespace UnitTest
             Assert.AreEqual("Verrekte Hamstring", patient.Treatments[0].TreatmentName);
             Assert.AreEqual("Gescheurde Miniscus", patient.Treatments[1].TreatmentName);
             Assert.AreEqual("Paracetamol", patient.Treatments[2].TreatmentName);
+
+            Assert.AreEqual(true, check1);
+            Assert.AreEqual(true, check2);
+            Assert.AreEqual(true, check3);
         }
 
         [TestMethod]
         public void AddTreatmentTestIncorrect()
         {
-            patient.Add(null);
+            bool check = patient.Add(null);
 
             Assert.AreEqual(0, patient.Treatments.Count);
+            Assert.AreEqual(false, check);
             CollectionAssert.AllItemsAreNotNull(patient.Treatments);
         }
 
@@ -90,11 +95,12 @@ namespace UnitTest
             patient.Add(Operation);
             patient.Add(medicine);
 
-            patient.Remove("Verrekte Hamstring");
+           bool check = patient.Remove("Verrekte Hamstring");
 
             CollectionAssert.DoesNotContain(patient.Treatments, fysio);
             Assert.AreEqual(2, patient.Treatments.Count);
             Assert.AreEqual("Gescheurde Miniscus", patient.Treatments[0].TreatmentName);
+            Assert.AreEqual(true, check);
         }
 
         [TestMethod]
@@ -104,9 +110,11 @@ namespace UnitTest
             patient.Add(medicine);
             patient.Add(Operation);
 
-            patient.Remove("");
+           bool check = patient.Remove("");
 
             Assert.AreEqual(3, patient.Treatments.Count);
+            Assert.AreEqual(false, check);
+
         }
 
         [TestMethod]
@@ -116,9 +124,10 @@ namespace UnitTest
             patient.Add(Operation);
             patient.Add(medicine);
 
-            patient.Remove("Oorspray");
+            bool check = patient.Remove("Oorspray");
 
             Assert.AreEqual(3, patient.Treatments.Count);
+            Assert.AreEqual(false, check);
         }
 
     }
