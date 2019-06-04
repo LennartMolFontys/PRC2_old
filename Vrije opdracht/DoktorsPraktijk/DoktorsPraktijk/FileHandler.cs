@@ -8,5 +8,8 @@ namespace DoktorsPraktijk
 {
     public class FileHandler
     {
+        public FileHandler() { }
+
+
     }
 }

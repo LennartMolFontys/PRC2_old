@@ -16,7 +16,6 @@ namespace UnitTest
         [TestMethod]
         public void ConstructorTest()
         {
-
             Assert.AreEqual(1, test.Day);
             Assert.AreEqual(2, test.Month);
             Assert.AreEqual(2019, test.Year);

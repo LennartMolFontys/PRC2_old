@@ -19,10 +19,11 @@ namespace DoktorsPraktijk
         {
             if (string.IsNullOrEmpty(firstName)) throw new ArgumentException("Firstname can't be null or empty", nameof(firstName));
             if (string.IsNullOrEmpty(lastName)) throw new ArgumentException("Lastname can't be null or empty", nameof(lastName));
+            if(birthDay == null) throw new ArgumentException("BirthDay can't be NULL");
 
             FirstName = firstName;
             LastName = lastName;
-            BirthDay = birthDay ?? throw new ArgumentException("BirthDay can't be NULL"); // ?? << checkt voor een NULL
+            BirthDay = birthDay;
             Treatments = new List<Treatment>();
         }
 

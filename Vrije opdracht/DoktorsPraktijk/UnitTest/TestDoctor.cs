@@ -99,7 +99,7 @@ namespace UnitTest
         [TestMethod]
         public void SortListTest()
         {
-            AvailableHour test1 = new AvailableHour(12, 12, 2018, 15, 00);
+            AvailableHour test1 = new AvailableHour(8, 1, 2019, 15, 00);
             AvailableHour test2 = new AvailableHour(10, 12, 2019, 15, 00);
             AvailableHour test3 = new AvailableHour(2, 8, 2019, 12, 00);
             dokter.Add(test2);

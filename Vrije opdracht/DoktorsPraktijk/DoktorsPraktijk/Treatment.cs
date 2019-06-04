@@ -20,10 +20,11 @@ namespace DoktorsPraktijk
         {
             if (string.IsNullOrEmpty(treatmentName)) throw new ArgumentException("Treatment name can't be null or Empty", nameof(treatmentName));
             if (days <= 0) throw new ArgumentException("Days can't be zero or less then zero", nameof(days));
+            if (startDate == null) throw new ArgumentException("StartDate can't be null", nameof(startDate));
 
             TreatmentName = treatmentName;
             Days = days;
-            StartDate = startDate ?? throw new ArgumentException("StartDate can't be null");
+            StartDate = startDate;
         }
 
         public override string ToString()

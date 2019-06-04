@@ -18,13 +18,19 @@ namespace DoktorsPraktijk
 
         public AvailableHour(int day, int month, int year, int hours, int minutes)
         {
-            date = new DateTime(year, month, day, hours,minutes, 00);
+            if (day < 1) throw new ArgumentException("Number of days can't be Zero or lower then Zero", nameof(day));
+            if (month < 1 || month > 12) throw new ArgumentException("Number of month has to between 1 and 12", nameof(month));
+            if (year < DateTime.Now.Year) throw new ArgumentException($"Number of year can't be lower then : {DateTime.Now.Year}", nameof(year)); // $ <--interpolatie hiermee kan je waardes in de strin zetten zonder string format
+            if (hours > 30 || hours < 1) throw new ArgumentException("Number of hours has to be between 1 and 24", nameof(hours));
+            if (minutes > 60) throw new ArgumentException("Maximum of minutes is 60", nameof(minutes));
+
             Day = day;
             Month = month;
             Year = year;
             Hours = hours;
             Minutes = minutes;
             Taken = false;
+            date = new DateTime(year, month, day, hours,minutes, 00);
         }
 
         public override string ToString()
