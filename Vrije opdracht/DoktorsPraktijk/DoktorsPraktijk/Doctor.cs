@@ -57,5 +57,10 @@ namespace DoktorsPraktijk
         {
             AvailableHours.Sort();
         }
+
+        public override string ToString()
+        {
+            return $"Dr {LastName}";
+        }
     }
 }

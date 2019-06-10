@@ -43,6 +43,11 @@ namespace DoktorsPraktijk
             Taken = true;
         }
 
+        public void SetNotTake()
+        {
+            Taken = false;
+        }
+
         public int CompareTo(AvailableHour hour)
         {
             if(hour== null)

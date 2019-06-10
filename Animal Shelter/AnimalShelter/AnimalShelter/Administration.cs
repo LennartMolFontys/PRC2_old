@@ -55,7 +55,6 @@ namespace AnimalShelter
                     return Animals[i];
                 }
             }
-
             return null;
         }
 
