@@ -508,7 +508,8 @@ namespace DoktorsPraktijk
 
             try
             {
-                AdminiStration.LoadDoctors(FileAppointments);
+                AdminiStration.LoadAppointMents(FileAppointments);
+                AdminiStration.LoadPatient(FilePatients);
                 FillBoxes();
             }
             catch (SerializationException)
