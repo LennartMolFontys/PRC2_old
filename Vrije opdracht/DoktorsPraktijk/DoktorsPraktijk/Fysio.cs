@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace DoktorsPraktijk
 {
+   [Serializable]
    public class Fysio : Treatment
     {
         public override decimal Price

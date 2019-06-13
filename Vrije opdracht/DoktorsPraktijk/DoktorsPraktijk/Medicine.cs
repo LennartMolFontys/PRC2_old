@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace DoktorsPraktijk
 {
+    [Serializable]
     public class Medicine : Treatment
     {
         public int Dosage { get;  private set; }

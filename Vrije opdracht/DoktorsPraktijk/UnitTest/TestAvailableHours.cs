@@ -25,6 +25,14 @@ namespace UnitTest
         }
 
         [TestMethod]
+        [ExpectedException(typeof(ArgumentException))]
+        public void Argumentexception()
+        {
+             AvailableHour fail = new AvailableHour(0, 0, 0, 0, -1);
+            AvailableHour fail2 = new AvailableHour(-1, 0, 0, 0, 61);
+        }
+        
+        [TestMethod]
         public void TestTostring()
         {
             string expected = "01-02-2019  05:30:00";
@@ -36,6 +44,30 @@ namespace UnitTest
         {
             test.SetTaken();
             Assert.AreEqual(true, test.Taken);
+        }
+
+        [TestMethod]
+        public void TestSetNotTaken()
+        {
+            test.SetTaken();
+            test.SetNotTaken();
+            Assert.AreEqual(false, test.Taken);
+        }
+
+        [TestMethod]
+        public void TestCompare()
+        {
+            AvailableHour compare = new AvailableHour(1, 1, 2019, 5, 30);
+            int i = test.CompareTo(compare);
+
+            Assert.AreEqual(1, i);
+        }
+
+        [TestMethod]
+        public void TestcompareFail()
+        {
+            int i = test.CompareTo(null);
+            Assert.AreEqual(-1, i);
         }
     }
 }

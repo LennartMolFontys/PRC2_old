@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace DoktorsPraktijk
 {
+    [Serializable]
    public class SimpleDate : IComparable<SimpleDate>
    {
         public DateTime date { get; private set; }
@@ -15,6 +16,10 @@ namespace DoktorsPraktijk
 
         public SimpleDate(int Day, int Month, int Year)
         {
+            if (Day <= 0) throw new ArgumentException("Days can't be Zero or lower then Zero");
+            if (Month <= 0 || Month > 12) throw new ArgumentException("Month must be between 1 and - 12");
+            if (Year <= 0) throw new ArgumentException("Year can't be lower then 0");
+
             date = new DateTime(Year, Month, Day);
         }
 
@@ -33,9 +38,6 @@ namespace DoktorsPraktijk
             {
                 return Year.CompareTo(date.Year);
             }
-        }
-
-
-      
+        }     
    }
 }

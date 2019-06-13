@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace DoktorsPraktijk
 {
-    public class Patient
+    [Serializable]
+    public class Patient :IComparable<Patient>
     {
         public string FirstName { get; private set; }
         public string LastName { get; private set; }
 
         public SimpleDate BirthDay { get; private set; }
+        public Appointment Appointment { get; private set; }
 
         public List<Treatment> Treatments { get; private set; }
 
@@ -57,5 +59,32 @@ namespace DoktorsPraktijk
         {
             return LastName + ", " + FirstName;
         }
+
+        public void Addappointment(Appointment appointment)
+        {
+            if(appointment !=null)
+            {
+                Appointment = appointment;
+            }
+        }
+
+        public void RemoveAppointment()
+        {
+            Appointment = null;
+        }
+
+
+        public int CompareTo(Patient patient)
+        {
+            if(patient == null)
+            {
+                return -1;
+            }
+            else
+            {
+                return LastName.CompareTo(patient.LastName);
+            }
+        }
+
     }
 }

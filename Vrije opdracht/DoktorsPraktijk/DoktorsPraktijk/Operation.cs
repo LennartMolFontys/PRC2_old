@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace DoktorsPraktijk
 {
+    [Serializable]
     public class Operation : Treatment
     {
         public int RecoveryTime { get; private set; }

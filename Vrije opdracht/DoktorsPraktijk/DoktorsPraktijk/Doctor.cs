@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace DoktorsPraktijk
 {
-    public class Doctor
+    [Serializable]
+    public class Doctor :IComparable<Doctor>
     {
         public string FirstName { get; private set; }
         public string LastName { get; private set; }
@@ -32,6 +33,7 @@ namespace DoktorsPraktijk
             if (hour != null)
             {
                 AvailableHours.Add(hour);
+                SortavailableHours();
                 return true;
             }
             return false;
@@ -43,7 +45,7 @@ namespace DoktorsPraktijk
             {
                 foreach (AvailableHour s in AvailableHours)
                 {
-                    if (s.ToString() == hour.ToString())
+                    if (s.ToString() == hour.ToString() && s.Taken == false)
                     {
                         s.SetTaken();
                         return true;
@@ -53,9 +55,37 @@ namespace DoktorsPraktijk
             return false;
         }
 
-        public void SortList()
+        public bool SetHourUnTaken(AvailableHour hour)
+        {
+            if (hour != null)
+            {
+                foreach (AvailableHour s in AvailableHours)
+                {
+                    if (s.ToString() == hour.ToString() && s.Taken == true)
+                    {
+                        s.SetNotTaken();
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+
+        public void SortavailableHours()
         {
             AvailableHours.Sort();
+        }
+
+        public int CompareTo(Doctor doctor)
+        {
+            if(doctor == null)
+            {
+                return -1;
+            }
+            else
+            {
+                return LastName.CompareTo(doctor.LastName);
+            }
         }
 
         public override string ToString()

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace DoktorsPraktijk
 {
+    [Serializable]
     public abstract class Treatment : Ipractrice
     {
         public abstract decimal Price { get; }

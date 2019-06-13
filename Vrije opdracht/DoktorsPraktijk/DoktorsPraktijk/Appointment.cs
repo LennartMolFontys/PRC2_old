@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace DoktorsPraktijk
 {
+    [Serializable]
     public class Appointment
     {
         public AvailableHour AppointmentDate { get; private set; }
@@ -26,14 +27,14 @@ namespace DoktorsPraktijk
 
         public override string ToString()
         {
-            return $" {AppointmentDate.ToString()},  {Docter.ToString()}, Patient : {Patient.ToString()}";
+            return $"{AppointmentDate.ToString()},  {Docter.ToString()}, Patient : {Patient.ToString()}";
         }
 
         public bool CancelAppointMent(Appointment appointment)
         {
             if (appointment != null)
             {
-                AppointmentDate.SetNotTake();
+                AppointmentDate.SetNotTaken();
                 return true;
             }
             return false;

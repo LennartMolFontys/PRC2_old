@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace DoktorsPraktijk
 {
+    [Serializable]
     public class AvailableHour : IComparable<AvailableHour>
     {
         private DateTime date;
@@ -20,9 +21,10 @@ namespace DoktorsPraktijk
         {
             if (day < 1) throw new ArgumentException("Number of days can't be Zero or lower then Zero", nameof(day));
             if (month < 1 || month > 12) throw new ArgumentException("Number of month has to between 1 and 12", nameof(month));
-            if (year < DateTime.Now.Year) throw new ArgumentException($"Number of year can't be lower then : {DateTime.Now.Year}", nameof(year)); // $ <--interpolatie hiermee kan je waardes in de strin zetten zonder string format
+            if (year < DateTime.Now.Year) throw new ArgumentException($"Number of year can't be lower then : {DateTime.Now.Year}", nameof(year)); // $ <--interpolatie hiermee kan je waardes in de string zetten zonder string format
             if (hours > 30 || hours < 1) throw new ArgumentException("Number of hours has to be between 1 and 24", nameof(hours));
             if (minutes > 60) throw new ArgumentException("Maximum of minutes is 60", nameof(minutes));
+            if (minutes < 0) throw new ArgumentException("Minimum of minutes is 0", nameof(minutes));
 
             Day = day;
             Month = month;
@@ -43,7 +45,7 @@ namespace DoktorsPraktijk
             Taken = true;
         }
 
-        public void SetNotTake()
+        public void SetNotTaken()
         {
             Taken = false;
         }

@@ -11,11 +11,10 @@ namespace DoktorsPraktijk
 {
     public class FileHandler
     {
-        //public string Filename { get;  private set; }
-        public FileHandler() { }
         private BinaryFormatter format;
 
-        public void Filehander()
+  
+        public FileHandler()
         {
             format = new BinaryFormatter();
         }
@@ -27,8 +26,8 @@ namespace DoktorsPraktijk
                 using (FileStream write = new FileStream(fileName, FileMode.Create))
                 {
                     format.Serialize(write, patients);
+                    return true;
                 }
-                return true;
             }
             return false;
         }
@@ -85,7 +84,7 @@ namespace DoktorsPraktijk
 
         public List<Appointment> LoadAppointment(string fileName)
         {
-            if(!string.IsNullOrEmpty(fileName) || string.IsNullOrWhiteSpace(fileName))
+            if(!string.IsNullOrEmpty(fileName) || !string.IsNullOrWhiteSpace(fileName))
             {
                 using (FileStream read = new FileStream(fileName, FileMode.Open))
                 {

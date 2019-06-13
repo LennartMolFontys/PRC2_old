@@ -49,7 +49,11 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdministrationTest.cs" />
+    <Compile Include="FileHandlerTest.cs" />
     <Compile Include="OperationTest.cs" />
+    <Compile Include="SimpleDateTest.cs" />
+    <Compile Include="TestAppointment.cs" />
     <Compile Include="TestAvailableHours.cs" />
     <Compile Include="TestDoctor.cs" />
     <Compile Include="TestFysio.cs" />

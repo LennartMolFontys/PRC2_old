@@ -75,7 +75,6 @@ namespace UnitTest
         [TestMethod]
         public void SetTakenFail()
         {
-            AvailableHour test = new AvailableHour(2, 8, 2019, 13, 30);
             AvailableHour setTaken = new AvailableHour(3, 8, 2019, 13, 30);
             dokter.Add(test);
 
@@ -97,6 +96,31 @@ namespace UnitTest
         }
 
         [TestMethod]
+        public void SetNotTaken()
+        {
+            dokter.Add(test);
+
+            dokter.SetHourTaken(test);
+
+            bool check = dokter.SetHourUnTaken(test);
+
+            Assert.AreEqual(false, dokter.AvailableHours[0].Taken);
+            Assert.AreEqual(true, check);
+        }
+
+        [TestMethod]
+        public void SetNotTakenFail()
+        {
+            dokter.Add(test);
+
+            dokter.SetHourTaken(test);
+            bool check = dokter.SetHourUnTaken(null);
+
+            Assert.AreEqual(true, dokter.AvailableHours[0].Taken);
+            Assert.AreEqual(false, check);
+        }
+
+        [TestMethod]
         public void SortListTest()
         {
             AvailableHour test1 = new AvailableHour(8, 1, 2019, 15, 00);
@@ -107,13 +131,18 @@ namespace UnitTest
             dokter.Add(test3);
             dokter.Add(test);
 
-            dokter.SortList();
+            dokter.SortavailableHours();
 
             Assert.AreEqual(test1.ToString(), dokter.AvailableHours[0].ToString());
             Assert.AreEqual(test3.ToString(), dokter.AvailableHours[1].ToString());
             Assert.AreEqual(test.ToString(), dokter.AvailableHours[2].ToString());
             Assert.AreEqual(test2.ToString(), dokter.AvailableHours[3].ToString());
 
+        }
+        [TestMethod]
+        public void Tostringtest()
+        {
+            Assert.AreEqual("Dr Pieters", dokter.ToString());
         }
     }
 }
